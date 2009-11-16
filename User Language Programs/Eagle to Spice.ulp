@@ -1,0 +1,142 @@
+/**
+ * Eagle to Spice.ulp
+ *
+ * This User Language Program will generate a SPICE circuit from an Eagle
+ * schematic, ready for simulation.
+ *
+ * To incorporate SPICE data into your Eagle schematic, parts can be given
+ * a "SPICE" attribute. The value of this attribute will be used to generate
+ * the SPICE netlist for that part. It may contain placeholders for any of the
+ * available substitutions (see below) or any other valid SPICE data.
+ * 
+ * It is recommended that you add "SPICE" attributes to the Eagle Library 
+ * devices you want to use in simulations. These attributes are inherited by
+ * instances of that device automatically, and can be overridden in the 
+ * schematic for specific parts that need tweaking. The monowave-eagle
+ * package (http://github.com/xdissent/monowave-eagle), in which this file
+ * is included, contains valid SPICE data for most devices in its libraries,
+ * as well as a few useful devices used specifically for SPICE simulations.
+ *
+ * Substitutions
+ * =============
+ *
+ * The "SPICE" attribute for an Eagle part may contain placeholders, which
+ * will be replaced with a value determined at runtime to generate the 
+ * SPICE netlist for that part. This allows you to include part specific data
+ * in the SPICE netlist when defining the "SPICE" attribute for the Eagle
+ * device.
+ *
+ * Available substitutions:
+ *
+ * Placeholder  Replacement
+ * -----------  -----------
+ * {NAME}       The name of the part in the schematic.
+ * {VALUE}      The value of the part in the schematic.
+ * {<PIN>.NET}  The net (SPICE node) to which the pin named <PIN> is attached.
+ * \n           A newline character. This is required for multiline SPICE data
+ *              because Eagle does not allow multiline attributes for parts.
+ *
+ * Example:
+ * ATTRIBUTE C1 'SPICE' '{NAME} {A.NET} {C.NET} {VALUE}'
+ *
+ * SPICE Models
+ * ============
+ *
+ * Including SPICE models in Eagle parts is possible by defining the "SPICEMOD"
+ * attribute. The value may only contain the "\n" placeholder. Each model
+ * is only defined once in the final circuit file. (not implemented yet!)
+ *
+ * Example:
+ * ATTRIBUTE D1 'SPICEMOD' '.model 1N4148 D (IS=0.1PA, RS=16 CJO=2PF TT=12N BV=100 IBV=1nA)'
+ */
+ 
+/**
+ * str_replace
+ *
+ * Replaces all occurrences of a substring found within a string.
+ */
+string str_replace(string search, string replace, string subject) {
+    while(strstr(subject, search) >= 0) {
+        int pos = strstr(subject, search);
+        string before = strsub(subject, 0, pos);
+        string after = strsub(subject, pos + strlen(search));
+        subject = before + replace + after;
+    }
+    return subject;
+}
+
+/**
+ * main
+ *
+ * Generates the SPICE circuit.
+ */
+int main() {
+    // Only valid in schematic mode.
+    if (schematic) {
+
+        // Use the entire schematic.
+        schematic(SCHEM) {
+        
+            // Create a models array.
+            string models[];
+            int m = 0;
+            
+            // Create a netlist array.
+            string netlist[];
+            int n = 0;
+    
+            // Iterate over each part.
+            SCHEM.parts(P) {
+            
+                // Check to see if it has SPICE models defined.
+                if (P.attribute["SPICEMOD"]) {
+                
+                    // The SPICE data to output.
+                    string out = P.attribute["SPICEMOD"];
+                    
+                    // Handle newlines.
+                    out = str_replace("\\n", "\n", out);
+                
+                    models[m++] = out;
+                }
+                
+                // Check to see if it has SPICE data defined.
+                if (P.attribute["SPICE"]) {
+                
+                    // The SPICE data to output.
+                    string out = P.attribute["SPICE"];
+                    
+                    // Handle newlines.
+                    out = str_replace("\\n", "\n", out);
+                
+                    // Substitute the name for "{NAME}".
+                    out = str_replace("{NAME}", P.name, out);
+                    
+                    // Substitute the value for "{VALUE}".
+                    out = str_replace("{VALUE}", P.value, out);
+                
+                    // Iterate over each part instance.
+                    P.instances(I) {
+                    
+                        // Iterate over each instance's pins.
+                        I.gate.symbol.pins(PIN) {
+                        
+                            // Substitute the pin net name for "{P.NET}" where "P" is the pin name.
+                            out = str_replace("{" + PIN.name + ".NET}", PIN.net, out);
+                        }
+                    }
+                    
+                    netlist[n++] = out;
+                }
+            }
+            
+            // Open output file
+            output(filesetext(SCHEM.name, ".cir")) {
+                printf(filesetext(filename(SCHEM.name), "\n"));
+                printf(strjoin(models, '\n'));
+                printf(strjoin(netlist, '\n'));
+            }
+        }
+    }
+    return 0;
+}
