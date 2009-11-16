@@ -75,12 +75,19 @@ string str_replace(string search, string replace, string subject) {
  * Generates the SPICE circuit.
  */
 int main() {
+
+    // Return value.
+    int ret = 0;
+    
     // Only valid in schematic mode.
     if (schematic) {
 
         // Use the entire schematic.
         schematic(SCHEM) {
         
+            // Determine the filename.
+            string outfile = filesetext(SCHEM.name, ".cir");
+            
             // Create a models array.
             string models[];
             int m = 0;
@@ -135,12 +142,14 @@ int main() {
             }
             
             // Open output file
-            output(filesetext(SCHEM.name, ".cir")) {
+            output(outfile) {
                 printf(filesetext(filename(SCHEM.name), "\n"));
                 printf(strjoin(models, '\n'));
                 printf(strjoin(netlist, '\n'));
             }
+            
+            // Try to launch the spice file.
         }
     }
-    return 0;
+    return ret;
 }
