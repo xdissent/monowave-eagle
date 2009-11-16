@@ -60,11 +60,34 @@
  * Replaces all occurrences of a substring found within a string.
  */
 string str_replace(string search, string replace, string subject) {
-    while(strstr(subject, search) >= 0) {
-        int pos = strstr(subject, search);
+    int lastpos = 0;
+    while(strstr(subject, search, lastpos) >= 0) {
+        int pos = strstr(subject, search, lastpos);
         string before = strsub(subject, 0, pos);
         string after = strsub(subject, pos + strlen(search));
         subject = before + replace + after;
+        lastpos = pos + strlen(replace);
+    }
+    return subject;
+}
+
+/**
+ * str_rreplace
+ *
+ * Replaces all occurrences of a regex pattern found within a string.
+ *
+ * Care has been taken to ensure that the replacement text is never
+ * tested against the regex to prevent infinite loops.
+ */
+string str_rreplace(string search, string replace, string subject) {
+    int lastpos = 0;
+    while(strxstr(subject, search, lastpos) >= 0) {
+        int len = 0;
+        int pos = strxstr(subject, search, lastpos, len);
+        string before = strsub(subject, 0, pos);
+        string after = strsub(subject, pos + len);
+        subject = before + replace + after;
+        lastpos = pos + strlen(replace);
     }
     return subject;
 }
@@ -148,7 +171,33 @@ int main() {
                 printf(strjoin(netlist, '\n'));
             }
             
-            // Try to launch the spice file.
+            /**
+             * Launch the file.
+             *
+             * Mac OS X
+             * --------
+             *
+             * The `open` command will handle everything perfectly.
+             *
+             * Windows
+             * -------
+             *
+             * This needs to be done with the `start` windows shell command to
+             * open the output file with the preferred application. It's a huge
+             * headache to use `start` directly from Eagle though. To make it,
+             * easier, we've included the `open.exe` utility, which accepts a 
+             * filename argument.
+             */
+             
+            // Check for drive letter and colon to determine OS.
+            if (strchr(outfile, ':') == 1) {
+                // Windows host.
+                ret = system(filedir(argv[0]) + "open.exe \"" + outfile + "\"");                
+            } else {
+                // Mac host.
+                ret = system("open \"" + outfile + "\"");
+            }
+
         }
     }
     return ret;
