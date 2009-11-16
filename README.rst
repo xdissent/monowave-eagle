@@ -19,7 +19,8 @@ SPICE Simulation
 A User Language Program exists, Eagle to Spice, which allows you to generate
 a SPICE compatible circuit. Most devices in the Monowave libraries already
 contain SPICE data for circuit simulation, and special devices are provided
-that aid in manipulating and plotting simulation data.
+that aid in manipulating and plotting simulation data. Check the comments in
+the `Eagle to Spice.ulp` file for more information.
 
 Metric vs Imperial
 ------------------

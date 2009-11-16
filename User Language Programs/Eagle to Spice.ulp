@@ -1,5 +1,5 @@
 /**
- * Eagle to Spice.ulp
+ * Eagle to Spice
  *
  * This User Language Program will generate a SPICE circuit from an Eagle
  * schematic, ready for simulation.
@@ -49,6 +49,10 @@
  * Example:
  * ATTRIBUTE D1 'SPICEMOD' '.model 1N4148 D (IS=0.1PA, RS=16 CJO=2PF TT=12N BV=100 IBV=1nA)'
  */
+
+#usage "en: Eagle to Spice\n"
+        "This User Language Program will generate a SPICE circuit from an Eagle\n"
+        "schematic, ready for simulation."
  
 /**
  * str_replace
