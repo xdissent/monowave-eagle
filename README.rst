@@ -22,6 +22,123 @@ contain SPICE data for circuit simulation, and special devices are provided
 that aid in manipulating and plotting simulation data. Check the comments in
 the `Eagle to Spice.ulp` file for more information.
 
+Standard Practices
+------------------
+
+If at all possible, you should follow the following guidelines when working
+with the libraries and tools in this package:
+
+Symbols
+~~~~~~~
+ 
+* Symbols use a 0.1 inch grid.
+
+* Pins for non-polarized devices are named `1` and `2` (`3`, `4` etc).
+
+* Pins for polarized 2 terminal devices are named `+` and `-`.
+
+* Pins for bipolar transistors are named `C`, `B` and `E`.
+
+* Pins for potentiometers are named `1`, `2` and `3` with `1` indicating 
+  "clockwise".
+  
+* Pins for multi-ganged potentiometers are named `X1`, `X2` and `X3` where 
+  `X` is the gate name. Example: `A2`.
+  
+* Pins for supply symbols are named for the common supply net they represent.
+  For example, the `VCC` symbol will always represent the `VCC` supply.
+
+Packages
+~~~~~~~~
+
+* Package pads fall on a 0.1 inch grid where possible.
+
+* Package holes use metric units. Preferred hole sizes:
+
+  + 0.7 mm
+  
+  + 0.9 mm
+  
+  + 1.1 mm
+  
+  + 1.3 mm
+   
+* Packages are centered about the origin except when pads won't fall on
+  the 0.1 inch grid.
+  
+* Each package has a visible name with the following properties:
+
+  + **Layer**: `tNames`
+  
+  + **Size**: 0.006 in.
+  
+  + **Font**: Vector
+  
+  + **Ratio**: 0.08
+  
+  + **Value**: `>NAME`
+  
+* Each package has a visible value with the following properties:
+
+  + **Layer**: `tValues`
+  
+  + **Size**: 0.004 in.
+  
+  + **Font**: Vector
+  
+  + **Ratio**: 0.08
+  
+  + **Value**: `>VALUE`
+  
+* The package name appears above the component, left justified.
+
+* The package value appears inside the component where possible, or at
+  the bottom, left justified.
+
+Devices
+~~~~~~~
+
+* Gates are named `A` and `B` (`C`, `D` etc).
+
+* Supply devices may include only supply symbols with a single supply pin 
+  named for the device itself.
+
+Schematics
+~~~~~~~~~~
+
+* Schematics use a 0.1 inch grid.
+
+* Multiple sheets should be used to separate logical blocks.
+
+* The `0` device represents *true* ground. Any other ground symbol must be 
+  connected to an instance of this device to be considered ground. For 
+  example, a `DGND` device may represent all digital ground points in a 
+  circuit, and could be tied to true ground through some kind of filtering 
+  network.
+  
+* Each supply voltage should use a different symbol, as follows:
+
+  + **VAA**: Large, unregulated/unfiltered positive supply.
+  
+  + **VBB**: Large, regulated/filtered positive supply.
+  
+  + **VCC**: General regulated/filtered positive supply.
+  
+  + **VDD**: Misc supply.
+  
+  + **VEE**: General regulated/filtered negative supply.
+  
+  + **VFF**: Large regulated/filtered negative supply.
+  
+  + **VGG**: Large unregulated/unfiltered positive supply.
+  
+  + **VHH** - **VZZ**: Misc supply.
+
+Boards
+~~~~~~
+
+* Boards use a 0.1 inch grid.
+
 Metric vs Imperial
 ------------------
 
