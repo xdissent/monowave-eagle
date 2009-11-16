@@ -18,14 +18,14 @@ SPICE Simulation
 
 A User Language Program exists, Eagle to Spice, which allows you to generate
 a SPICE compatible circuit. Most devices in the Monowave libraries already
-contain SPICE data for circuit simulation and special devices exist to aid
-in manipulating and plotting simulation data.
+contain SPICE data for circuit simulation, and special devices are provided
+that aid in manipulating and plotting simulation data.
 
 Metric vs Imperial
 ------------------
 
 A lot of thought was put into coming up with standard measurement grids for
-use in the Eagle libraries. Initially, every pad and hole was laid out on
+use in the Monowave libraries. Initially, every pad and hole was laid out on
 a metric grid with 1mm spacing. We really wanted to go full-on metric to
 stand aside our more progressive world citizens and make it easier to 
 interact with foreign board houses and manufacturers who primarily are
@@ -38,8 +38,8 @@ to connect any nets to pins. Eagle is pretty stubborn about this detail
 and chances are EVERY library or schematic you get from any other Eagle
 user will use a 0.1 inch grid, so it's practically impossible to get around
 imperial here. That means half of the Eagle experience is already out of 
-the question for metric. It's not the fact that the board and schematic
-grids *have* to agree, but that they *wouldn't* that is the first strike
+the question for metric. It's not the fact the board and schematic grids 
+*have* to agree, but that they *wouldn't* - that's the first strike
 against the use of metric in product design.
 
 History, unfortunately, is also not on metric's side of the debate either
@@ -49,12 +49,12 @@ to make heavy use of imperial grids. Most designs will use a least a DIP or
 two, which automatically ties you to a 0.1 inch grid lead spacing. So we've
 got a decades old invisible hand pushing us further back towards imperial.
 
-Of course, most actual devices *manufactured* in a metric friendly country
+Of course, most actual devices are *manufactured* in a metric friendly country
 regardless of the origins of their design. That means the overwhelming 
 majority of parts will have data sheets using metric units. Every measurement
 would have to be converted to metric before placing a pad if the grid
-is set to imperial. And with more and more manufacturers converting to metric,
-the problem is only going to get worse.
+is was set to imperial. And with more and more manufacturers converting to 
+metric, the problem is only going to get worse.
 
 The good news is conversion is simple in Eagle, because you can freely change
 the grid back and forth from imperial to metric without altering the pad
@@ -71,4 +71,5 @@ It's obvious that any choice is a compromise in this situation, but the
 benefits of using an imperial grid outweigh the warm fuzzy feeling we'd get
 by using metric. In the future it might make sense to switch, and we'd love
 to. But for now the rule of thumb is to use a 0.1 inch grid in *every* 
-situation. We apologize to the rest of the industrialized world.
+situation. We apologize to the rest of the industrialized world for succumbing
+to im*peer*ial pressure...
