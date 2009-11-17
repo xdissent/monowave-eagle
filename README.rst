@@ -41,6 +41,8 @@ Symbols
 
 * Pins for potentiometers are named `1`, `2` and `3` with `1` indicating 
   "clockwise".
+
+* Pins for operational amplifiers are named `IN-`, `IN+`, `OUT`, `VCC`, and `VDD`
   
 * Pins for multi-ganged potentiometers are named `X1`, `X2` and `X3` where 
   `X` is the gate name. Example: `A2`.
@@ -74,7 +76,7 @@ Packages
   
   + **Font**: Vector
   
-  + **Ratio**: 0.08
+  + **Ratio**: 8%
   
   + **Value**: `>NAME`
   
@@ -86,7 +88,7 @@ Packages
   
   + **Font**: Vector
   
-  + **Ratio**: 0.08
+  + **Ratio**: 8%
   
   + **Value**: `>VALUE`
   
@@ -94,14 +96,22 @@ Packages
 
 * The package value appears inside the component where possible, or at
   the bottom, left justified.
+  
+* All package outlines are 8 mil wide.
 
 Devices
 ~~~~~~~
 
 * Gates are named `A` and `B` (`C`, `D` etc).
 
+* Single gate devices are named `A`.
+
+* Supply gates are named `SUP`.
+
 * Supply devices may include only supply symbols with a single supply pin 
   named for the device itself.
+
+* SPICE data is defined on a device if possible.
 
 Schematics
 ~~~~~~~~~~
@@ -109,6 +119,8 @@ Schematics
 * Schematics use a 0.1 inch grid.
 
 * Multiple sheets should be used to separate logical blocks.
+
+* Each sheet should contain a `LETTER` frame with all information filled out.
 
 * The `0` device represents *true* ground. Any other ground symbol must be 
   connected to an instance of this device to be considered ground. For 
