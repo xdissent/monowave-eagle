@@ -43,7 +43,29 @@
  *                  because Eagle does not allow multiline attributes for parts.
  *
  * Example:
- * ATTRIBUTE C1 'SPICE' '{NAME} {A.NET} {C.NET} {VALUE}'
+ * ATTRIBUTE C1 'SPICE' 'C{NAME} {A.NET} {C.NET} {VALUE}'
+ *
+ * Operations
+ * ==========
+ *
+ * "SPICE" attributes may contain simple operations to calculate complex values
+ * at runtime. Operations may be nested and always return a real value without
+ * units. Either term in the operation may contain a scale factor and/or units,
+ * and conversion to a real number will be done before the operation is evaluated.
+ *
+ * Available operations:
+ *
+ * Operator             Operation
+ * --------             ---------
+ * LN <RIGHT>           Natural logarithm of value.
+ * LOG <RIGHT>          Base 10 logarithm of value.
+ * <LEFT> / <RIGHT>     Division.
+ * <LEFT> * <RIGHT>     Multiplication.
+ * <LEFT> + <RIGHT>     Addition.
+ * <LEFT> - <RIGHT>     Subtraction.
+ *
+ * Example:
+ * ATTRIBUTE R1 'SPICE' 'R{NAME} {1.NET} {2.NET} {{{VALUE} * {{ATTR.POSITION} / 100}} + 0.001}'
  *
  * SPICE Models
  * ============
@@ -87,7 +109,7 @@ string str_replace(string search, string replace, string subject) {
  */
 string str_rreplace(string search, string replace, string subject) {
     int lastpos = 0;
-    while(strxstr(subject, search, lastpos) >= 0) {
+    while (strxstr(subject, search, lastpos) >= 0) {
         int len = 0;
         int pos = strxstr(subject, search, lastpos, len);
         string before = strsub(subject, 0, pos);
@@ -95,6 +117,161 @@ string str_rreplace(string search, string replace, string subject) {
         subject = before + replace + after;
         lastpos = pos + strlen(replace);
     }
+    return subject;
+}
+
+/**
+ * str_trim
+ *
+ * Removes whitespace from the beginning and end of a string.
+ *
+ */
+string str_trim(string subject) {
+    int pos = 0;
+    int len = 0;
+    pos = strxstr(subject, "\\S+", pos, len);
+    return strsub(subject, pos, len);
+}
+
+/**
+ * scale_to_multiplier
+ *
+ * Returns the multiplier for the given scale.
+ *
+ * Example: "K" => 1000
+ *
+ */
+real scale_to_multiplier(string scale) {
+    scale = strupr(scale);
+
+    if (scale == "") {
+        return 1;
+    } else if (scale == "T") {
+        return pow(10, 12);
+    } else if (scale == "G") {
+        return pow(10, 9);
+    } else if (scale == "MEG") {
+        return pow(10, 6);
+    } else if (scale == "K") {
+        return pow(10, 3);
+    } else if (scale == "MIL") {
+        return 2.54 * pow(10, -6);
+    } else if (scale == "M") {
+        return pow(10, -3);
+    } else if (scale == "U") {
+        return pow(10, -6);
+    } else if (scale == "N") {
+        return pow(10, -9);
+    } else if (scale == "P") {
+        return pow(10, -12);
+    } else if (scale == "F") {
+        return pow(10, -15);
+    }
+    return 0;
+}
+
+/**
+ * str_to_units
+ *
+ * Converts a string to a real value taking into account the units supplied.
+ *
+ * Example: "100k" => 1000, "2.2uF" => 0.0000022
+ */
+real str_to_units(string subject) {
+    real value = 0.0;
+    int len = 0;
+    
+    // Find first integer or real value.
+    int pos = strxstr(subject, "[\\d\\.]*", 0, len);
+    if (pos >= 0) {
+        
+        // Extract found integer or real and convert to real.
+        value = strtod(strsub(subject, pos, len));
+        
+        // Find first scale factor if any.
+        pos = strxstr(strupr(subject), "(MIL|MEG|T|G|K|M|U|N|P|F)", pos, len);
+        if (pos >= 0) {
+        
+            // Multiply the value by the scale factor.
+            value = value * scale_to_multiplier(strsub(subject, pos, len));
+        }
+    }
+    return value;
+}
+
+/**
+ * math_replace
+ *
+ * Replaces all math operations with the calculated value.
+ *
+ * This function currently evaluates the following operations:
+ *   /      Division
+ *   *      Multiplication
+ *   +      Addition
+ *   -      Subtraction
+ *   LEN    Logarithm
+ *   LOG     Natural logarithm
+ *
+ * Example: {100k * {5 * 2.2k}}
+ */
+string math_replace(string subject) {
+    // Regex to find math operators in a substitution.
+    string operator_re = "((\\s+[*/+\\-])|log|LOG|LN|ln)\\s+";
+    
+    // Regex to find math substitutions.
+    string substitution_re = "\\{[^{}]*" + operator_re + "[^{}]+\\}";
+        
+    // Loop through all possible math substitutions.
+    while (strxstr(subject, substitution_re, 0) >= 0) {
+    
+        // The length of the substitution.
+        int len = 0;
+        
+        // Find the position of the substitution.
+        int pos = strxstr(subject, substitution_re, 0, len);
+
+        // Save the text before and after this substitution.
+        string before = strsub(subject, 0, pos);
+        string after = strsub(subject, pos + len);
+        
+        // Get the substitution.
+        string substitution = strsub(subject, pos, len);
+        
+        // Find the operator.
+        int operator_len = 0;
+        int operator_pos = strxstr(substitution, operator_re, 0, operator_len);
+        
+        // The left term (if it exists);
+        real left = str_to_units(str_trim(strsub(substitution, 1, operator_pos)));
+        
+        // The operator.
+        string operator = strupr(str_trim(strsub(substitution, operator_pos, operator_len)));
+        
+        // The right term.
+        real right = str_to_units(str_trim(strsub(substitution, operator_pos + operator_len - 1)));
+        
+        // The calculated value.
+        real value = 0;
+        
+        // Do the math.
+        if (operator == "+") {
+            value = left + right;
+        } else if(operator == "-") {
+            value = left - right;
+        } else if(operator == "*") {
+            value = left * right;
+        } else if(operator == "/") {
+            value = left / right;
+        } else if(operator == "LOG") {
+            value = log10(right);
+        } else if(operator == "LN") {
+            value = log(right);
+        }
+        
+        // make the substitution
+        sprintf(subject, "%s%f%s", before, value, after);
+    }
+    
     return subject;
 }
 
