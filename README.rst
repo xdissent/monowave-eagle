@@ -121,6 +121,7 @@ Schematics
 * Multiple sheets should be used to separate logical blocks.
 
 * Each sheet should contain a `LETTER` frame with all information filled out.
+  Changing the value will control the sheet's title.
 
 * The `0` device represents *true* ground. Any other ground symbol must be 
   connected to an instance of this device to be considered ground. For 
@@ -150,6 +151,8 @@ Boards
 ~~~~~~
 
 * Boards use a 0.1 inch grid.
+
+* Traces use a 45 degree bend. Avoid 90 degree bends where possible.
 
 Metric vs Imperial
 ------------------
@@ -203,3 +206,30 @@ by using metric. In the future it might make sense to switch, and we'd love
 to. But for now the rule of thumb is to use a 0.1 inch grid in *every* 
 situation. We apologize to the rest of the industrialized world for succumbing
 to im*peer*ial pressure...
+
+The Future
+----------
+
+The Monowave Labs support files will eventually (and hopefully) include:
+
+* SPICE enabled test point devices which can simulate ammeters, 
+  voltmeters and power meters in SPICE. Each test point will create
+  a pad on the board layout for easy testing of the actual circuit.
+
+* Keyboard shortcuts for Eagle commands. MOVE, GRID mm, GRID inch and GROUP
+  are common and should have easy to use shortcuts.
+
+* Better design rules that check for silk screen and pad overlap.
+
+* A BOM manager.
+
+* A Bitscope program to run automated tests to verify a circuit works similarly
+  to the simulations.
+
+* A User Language Program to generate a SPICE subcircuit for a group of 
+  parts, and automatically create a new Library part which uses that subcircuit
+  as it's SPICE model. Each explicitly named net in the group would become a pin
+  and a template symbol could be created for the device. Better yet, a dialog
+  could let you connect the nets to pins. Pin ordering and placement could also
+  be configurable. The resulting device could be saved to a library chosen at
+  runtime also through the dialog.
