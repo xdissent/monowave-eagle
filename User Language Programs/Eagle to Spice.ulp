@@ -17,6 +17,10 @@
  * is included, contains valid SPICE data for most devices in its libraries,
  * as well as a few useful devices used specifically for SPICE simulations.
  *
+ * Global SPICE data for a schematic can be added to the "SPICE" global 
+ * attribute. It is recommended that you define things like VCC the supply
+ * voltage globally.
+ *
  * Substitutions
  * =============
  *
@@ -28,13 +32,15 @@
  *
  * Available substitutions:
  *
- * Placeholder  Replacement
- * -----------  -----------
- * {NAME}       The name of the part in the schematic.
- * {VALUE}      The value of the part in the schematic.
- * {<PIN>.NET}  The net (SPICE node) to which the pin named <PIN> is attached.
- * \n           A newline character. This is required for multiline SPICE data
- *              because Eagle does not allow multiline attributes for parts.
+ * Placeholder      Replacement
+ * -----------      -----------
+ * {NAME}           The name of the part in the schematic.
+ * {VALUE}          The value of the part in the schematic.
+ * {<PIN>.NET}      The net (SPICE node) to which the pin named <PIN> is 
+ *                  attached.
+ * {ATTR.<ATTR>}    The value of the attribute named <ATTR>.
+ * \n               A newline character. This is required for multiline SPICE data
+ *                  because Eagle does not allow multiline attributes for parts.
  *
  * Example:
  * ATTRIBUTE C1 'SPICE' '{NAME} {A.NET} {C.NET} {VALUE}'
@@ -139,9 +145,6 @@ int main() {
                 
                     // The SPICE data to output.
                     string out = P.attribute["SPICE"];
-                    
-                    // Handle newlines.
-                    out = str_replace("\\n", "\n", out);
                 
                     // Substitute the name for "{NAME}".
                     out = str_replace("{NAME}", P.name, out);
@@ -157,9 +160,33 @@ int main() {
                         
                             // Substitute the pin net name for "{P.NET}" where "P" is the pin name.
                             out = str_replace("{" + PIN.name + ".NET}", PIN.net, out);
+                            
+                            // Substitute the pin net name for "{G.P.NET}" where "G" is the gate name.
+                            out = str_replace("{" + I.gate.name + "." + PIN.name + ".NET}", PIN.net, out);
                         }
                     }
                     
+                    // Iterate over each part attribute.
+                    P.attributes(A) {
+                        // Substitute value of attribute named "A" for "{ATTR.A}"
+                        out = str_replace("{ATTR." + A.name + "}", A.value, out);
+                    }
+                    
+                    // Handle newlines last so other substitutions can use them.
+                    out = str_replace("\\n", "\n", out);
+                    
+                    netlist[n++] = out;
+                }
+            }
+            
+            // Process global SPICE data.
+            SCHEM.attributes(A) {
+                if (A.name == "SPICE") {
+                    string out = A.value;
+                
+                    // Handle newlines.
+                    out = str_replace("\\n", "\n", out);
+                
                     netlist[n++] = out;
                 }
             }
