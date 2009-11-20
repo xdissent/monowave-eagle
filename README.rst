@@ -4,6 +4,34 @@ Eagle Support Files for Monowave Labs
 This package contains all libraries, user scripts, CAM files, etc. which are
 used in the design and production of Monowave Labs circuit boards.
 
+Get the Source
+--------------
+
+Using your preferred Git application, clone 
+`git://github.com/xdissent/monowave-eagle.git`. If you plan on running the 
+SPICE examples, you may need to update the paths in 
+`Projects/SPICE Examples/eagle.epf` or make sure your clone of the repository
+is located at 
+`C:\Documents and Settings\Administrator\My Documents\monowave-eagle`. Mac 
+users (of which I am one) are out of luck here and will almost definitely 
+have to update `eagle.epf`.
+
+Eagle Setup
+-----------
+
+To use this package, simply add the appropriate paths to your Eagle directory
+options (*Options* -> *Directories*). Most of the time your options will look
+like the following:
+
+====================== =============================================
+Libraries              `$HOME\monowave-eagle\Libraries`
+Design Rules           `$HOME\monowave-eagle\Design Rules`
+User Language Programs `$HOME\monowave-eagle\User Language Programs`
+Scripts                `$EAGLEDIR\scr`
+CAM Jobs               `$HOME\monowave-eagle\CAM Jobs`
+Projects               `$HOME\monowave-eagle\Projects`
+====================== =============================================
+
 Device Libraries
 ----------------
 
