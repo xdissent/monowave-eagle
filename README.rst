@@ -41,7 +41,8 @@ Complete, standardized Eagle libraries are hard to come by. We created our
 own from scratch to eliminate all the guesswork involved with using the
 default Eagle libraries. In addition to providing a consistency that helps
 us sleep better at night, these libraries contain devices compatible with
-other parts of this package, like SPICE simulation and the BOM manager.
+other parts of this package, like SPICE simulation and the (forthcoming) 
+BOM manager.
 
 SPICE Simulation
 ----------------
