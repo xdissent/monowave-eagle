@@ -1,0 +1,28 @@
+[Eagle]
+Version="05 06 00"
+Platform="Windows"
+Serial="20F4CAA25D-LSR-DOWL-NCP"
+Globals="Globals"
+Desktop="Desktop"
+
+[Globals]
+AutoSaveProject=1
+UsedLibrary="C:/Documents and Settings/Administrator/My Documents/monowave-eagle/Libraries/Frames.lbr"
+UsedLibrary="C:/Documents and Settings/Administrator/My Documents/monowave-eagle/Libraries/Op Amps.lbr"
+UsedLibrary="C:/Documents and Settings/Administrator/My Documents/monowave-eagle/Libraries/SPICE Tools.lbr"
+UsedLibrary="C:/Documents and Settings/Administrator/My Documents/monowave-eagle/Libraries/Supply.lbr"
+UsedLibrary="C:/Documents and Settings/Administrator/My Documents/monowave-eagle/Libraries/Switches.lbr"
+UsedLibrary="C:/Documents and Settings/Administrator/My Documents/monowave-eagle/Libraries/Transistors.lbr"
+UsedLibrary="C:/Documents and Settings/Administrator/My Documents/monowave-eagle/Libraries/Passives/Resistors.lbr"
+UsedLibrary="C:/Documents and Settings/Administrator/My Documents/monowave-eagle/Libraries/Passives/Capacitors.lbr"
+UsedLibrary="C:/Documents and Settings/Administrator/My Documents/monowave-eagle/Libraries/Passives/Potentiometers.lbr"
+
+[Win_1]
+Type="Control Panel"
+Loc="770 394 1369 793"
+State=2
+Number=0
+
+[Desktop]
+Screen="1920 1178"
+Window="Win_1"
