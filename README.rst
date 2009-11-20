@@ -23,14 +23,14 @@ To use this package, simply add the appropriate paths to your Eagle directory
 options (*Options* -> *Directories*). Most of the time your options will look
 like the following:
 
-====================== =============================================
-Libraries              `$HOME\monowave-eagle\Libraries`
-Design Rules           `$HOME\monowave-eagle\Design Rules`
-User Language Programs `$HOME\monowave-eagle\User Language Programs`
-Scripts                `$EAGLEDIR\scr`
-CAM Jobs               `$HOME\monowave-eagle\CAM Jobs`
-Projects               `$HOME\monowave-eagle\Projects`
-====================== =============================================
+========================== =============================================
+**Libraries**              `$HOME\monowave-eagle\Libraries`
+**Design Rules**           `$HOME\monowave-eagle\Design Rules`
+**User Language Programs** `$HOME\monowave-eagle\User Language Programs`
+**Scripts**                `$EAGLEDIR\scr`
+**CAM Jobs**               `$HOME\monowave-eagle\CAM Jobs`
+**Projects**               `$HOME\monowave-eagle\Projects`
+========================== =============================================
 
 Device Libraries
 ----------------
@@ -100,27 +100,24 @@ Packages
   
 * Each package has a visible name with the following properties:
 
-  + **Layer**: `tNames`
+  ========= =========
+  **Layer** `tNames`
+  **Size**  0.006 in.
+  **Font**  Vector
+  **Ratio** 8%
+  **Value** `>NAME`
+  ========= =========
   
-  + **Size**: 0.006 in.
-  
-  + **Font**: Vector
-  
-  + **Ratio**: 8%
-  
-  + **Value**: `>NAME`
   
 * Each package has a visible value with the following properties:
 
-  + **Layer**: `tValues`
-  
-  + **Size**: 0.004 in.
-  
-  + **Font**: Vector
-  
-  + **Ratio**: 8%
-  
-  + **Value**: `>VALUE`
+  ========= =========
+  **Layer** `tValues`
+  **Size**  0.004 in.
+  **Font**  Vector
+  **Ratio** 8%
+  **Value** `>VALUE`
+  ========= =========
   
 * The package name appears above the component, left justified.
 
