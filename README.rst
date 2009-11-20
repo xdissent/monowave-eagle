@@ -12,9 +12,11 @@ Using your preferred Git application, clone
 SPICE examples, you may need to update the paths in 
 `Projects/SPICE Examples/eagle.epf` or make sure your clone of the repository
 is located at 
-`C:\Documents and Settings\Administrator\My Documents\monowave-eagle`. Mac 
+`/C:/Documents and Settings/Administrator/My Documents/monowave-eagle`. Mac 
 users (of which I am one) are out of luck here and will almost definitely 
-have to update `eagle.epf`.
+have to update `eagle.epf`. Note that Eagle does some funky file name handling
+and different path separators might be required for different platforms. It
+looks like the forward slash is pretty much universally compatible though.
 
 Eagle Setup
 -----------
@@ -24,12 +26,12 @@ options (*Options* -> *Directories*). Most of the time your options will look
 like the following:
 
 ========================== =============================================
-**Libraries**              `$HOME\monowave-eagle\Libraries`
-**Design Rules**           `$HOME\monowave-eagle\Design Rules`
-**User Language Programs** `$HOME\monowave-eagle\User Language Programs`
-**Scripts**                `$EAGLEDIR\scr`
-**CAM Jobs**               `$HOME\monowave-eagle\CAM Jobs`
-**Projects**               `$HOME\monowave-eagle\Projects`
+**Libraries**              `$HOME/monowave-eagle/Libraries`
+**Design Rules**           `$HOME/monowave-eagle/Design Rules`
+**User Language Programs** `$HOME/monowave-eagle/User Language Programs`
+**Scripts**                `$EAGLEDIR/scr`
+**CAM Jobs**               `$HOME/monowave-eagle/CAM Jobs`
+**Projects**               `$HOME/monowave-eagle/Projects`
 ========================== =============================================
 
 Device Libraries
