@@ -223,13 +223,14 @@ real str_to_units(string subject) {
  *   +      Addition
  *   -      Subtraction
  *   LEN    Logarithm
- *   LOG     Natural logarithm
+ *   LOG    Natural logarithm
+ *   EXP    Raise the left term to the power of the right.
  *
  * Example: {100k * {5 * 2.2k}}
  */
 string math_replace(string subject) {
     // Regex to find math operators in a substitution.
-    string operator_re = "((\\s+[*/+\\-])|log|LOG|LN|ln)\\s+";
+    string operator_re = "((\\s+[*/+\\-])|log|LOG|ln|LN|exp|EXP)\\s+";
     
     // Regex to find math substitutions.
     string substitution_re = "\\{[^{}]*" + operator_re + "[^{}]+\\}";
@@ -279,6 +280,8 @@ string math_replace(string subject) {
             value = log10(right);
         } else if(operator == "LN") {
             value = log(right);
+        } else if(operator == "EXP") {
+            value = pow(left, right);
         }
         
         // make the substitution
@@ -330,6 +333,7 @@ int main() {
                 
                     models[m++] = out;
                 }
+                
                 
                 // Check to see if it has SPICE data defined.
                 if (P.attribute["SPICE"]) {
