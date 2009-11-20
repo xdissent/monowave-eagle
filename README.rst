@@ -51,7 +51,7 @@ A User Language Program exists, Eagle to Spice, which allows you to generate
 a SPICE compatible circuit. Most devices in the Monowave libraries already
 contain SPICE data for circuit simulation, and special devices are provided
 that aid in manipulating and plotting simulation data. A few circuit examples
-are provided in the `Projects/SPICE Examples` directory. Check the comments in
+are available in the `Projects/SPICE Examples` directory. Check the comments in
 the `Eagle to Spice.ulp` file for more information on creating your own SPICE
 compatible Eagle parts.
 
@@ -178,6 +178,8 @@ Boards
 * Boards use a 0.1 inch grid.
 
 * Traces use a 45 degree bend. Avoid 90 degree bends where possible.
+
+* Run the DRC with `Monowave.dru` to check trace widths and clearances.
 
 Metric vs Imperial
 ------------------
