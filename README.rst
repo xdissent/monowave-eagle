@@ -158,21 +158,16 @@ Schematics
   
 * Each supply voltage should use a different symbol, as follows:
 
-  + **VAA**: Large, unregulated/unfiltered positive supply.
-  
-  + **VBB**: Large, regulated/filtered positive supply.
-  
-  + **VCC**: General regulated/filtered positive supply.
-  
-  + **VDD**: Misc supply.
-  
-  + **VEE**: General regulated/filtered negative supply.
-  
-  + **VFF**: Large regulated/filtered negative supply.
-  
-  + **VGG**: Large unregulated/unfiltered positive supply.
-  
-  + **VHH** - **VZZ**: Misc supply.
+  ================= ==============================================
+  **VAA**           Large, unregulated/unfiltered positive supply.
+  **VBB**           Large, regulated/filtered positive supply.
+  **VCC**           General regulated/filtered positive supply.
+  **VDD**           Misc supply.
+  **VEE**           General regulated/filtered negative supply.
+  **VFF**           Large regulated/filtered negative supply.
+  **VGG**           Large unregulated/unfiltered positive supply.
+  **VHH** - **VZZ** Misc supply.
+  ================= ==============================================
 
 Boards
 ~~~~~~
