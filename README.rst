@@ -71,8 +71,8 @@ Symbols
 
 * Pins for bipolar transistors are named `C`, `B` and `E`.
 
-* Pins for potentiometers are named `1`, `2` and `3` with `1` indicating 
-  "clockwise".
+* Pins for potentiometers are named `1`, `2` and `3` with `3` indicating 
+  "clockwise" and `2` is "counterclockwise".
 
 * Pins for operational amplifiers are named `IN-`, `IN+`, `OUT`, `VCC`, and `VDD`
   
