@@ -400,6 +400,8 @@ int main() {
             // Open output file
             output(outfile) {
                 printf(filesetext(filename(SCHEM.name), "\n"));
+                // Automatically run simulations. Must be first command.
+                printf(".CONTROL\nrun\n.ENDC\n");
                 printf(strjoin(models, '\n'));
                 printf(strjoin(netlist, '\n'));
             }
