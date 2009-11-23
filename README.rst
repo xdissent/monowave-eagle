@@ -223,7 +223,7 @@ Of course, most actual devices are *manufactured* in a metric friendly country
 regardless of the origins of their design. That means the overwhelming 
 majority of parts will have data sheets using metric units. Every measurement
 would have to be converted to metric before placing a pad if the grid
-is was set to imperial. And with more and more manufacturers converting to 
+was set to imperial. And with more and more manufacturers converting to 
 metric, the problem is only going to get worse.
 
 The good news is conversion is simple in Eagle, because you can freely change
