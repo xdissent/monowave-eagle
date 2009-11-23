@@ -44,6 +44,16 @@ us sleep better at night, these libraries contain devices compatible with
 other parts of this package, like SPICE simulation and the (forthcoming) 
 BOM manager.
 
+Library Browser
+---------------
+
+The Library Browser User Language Program will generate a pretty slick HTML 
+site containing all the devices, packages, and symbols in the currently used
+Eagle libraries. It renders XHTML 1.0 Strict compliant markup, and uses JQuery
+and JQuery UI to spruce things up. A current version displaying all of the 
+Monowave libraries is always available at 
+http://github.com/xdissent/monowave-eagle/libraries/
+
 SPICE Simulation
 ----------------
 
