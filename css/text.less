@@ -1,0 +1,126 @@
+/**
+ * Grid LESS
+ *
+ * Vertical Grid and Text
+ *
+ * Copyright 2009 Greg Thornton <xdissent@gmail.com>
+ * License: http://creativecommons.org/licenses/by-sa/3.0/us/
+ */
+
+@font-size: 12px;
+@line-height: 18px;
+
+body {
+    font-family: Helvetica, Arial, 'Liberation Sans', FreeSans, sans-serif;
+    font-size: @font-size;
+    line-height: @line-height;
+}
+
+a:focus {
+    outline: 1px dotted;
+}
+
+hr {
+    border: 0 #ccc solid;
+    border-top-width: 1px;
+    clear: both;
+    height: 0;
+    margin-top: -1px;
+}
+
+.gargantuan {
+    font-weight: bold;
+    font-size: 6em;
+    line-height: 1em;
+}
+
+.enormous {
+    font-weight: bold;
+    font-size: 5em;
+    line-height: 1.2em;
+}
+
+.giant {
+    font-weight: bold;
+    font-size: 4em;
+    line-height: 1.125em;
+}
+
+.huge {
+    font-weight: bold;
+    font-size: 3em;
+    line-height: 1.5em;
+}
+
+.h1 {
+    font-weight: bold;
+    font-size: 2.5em;
+    line-height: 1.2em;
+}
+
+.h2 {
+    font-weight: bold;
+    font-size: 2em;
+    line-height: 1.5em;
+}
+
+.h3 {
+    font-weight: bold;
+    font-size: 1.5em;
+    line-height: @line-height;
+}
+
+.h4 {
+    font-weight: bold;
+    font-size: 1.25em;
+    line-height: @line-height;
+}
+
+.h5 {
+    font-weight: bold;
+    font-size: 1em;
+    line-height: @line-height;
+}
+
+.h6 {
+    font-weight: normal;
+    font-size: 1em;
+    line-height: @line-height;
+}
+
+h1 { .h1; }
+h2 { .h2; }
+h3 { .h3; }
+h4 { .h4; }
+h5 { .h5; }
+h6 { .h6; }
+
+ol {
+    list-style: decimal;
+}
+
+ul {
+    list-style: none;
+}
+
+li {
+    margin-left: 30px;
+}
+
+p,
+dl,
+hr,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+ol,
+ul,
+pre,
+table,
+address,
+fieldset {
+    margin-bottom: @line-height;
+}

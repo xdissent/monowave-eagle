@@ -1,0 +1,51 @@
+@import url(grid.less);
+
+#forkme {
+    position: absolute;
+    top: 0;
+    right: 0;
+    border: 0;
+    z-index: 1001;
+}
+
+#wrapper {
+    .grid-container;
+    
+    font-family: Georgia, serif;
+
+    #header {
+        .grid(16);
+        
+        > p {
+            .huge;
+        }
+    }
+    
+    #sidebar {
+        .grid(3);
+        
+        > ul > li {
+            margin-left: 0;
+        }
+    }
+
+    #content {
+        .grid(13);
+    }
+
+    #footer {
+        .grid(16);
+        
+        > p:first-child {
+            .grid(8);
+            .alpha;
+        }
+        
+        > p:last-child {
+            .grid(8);
+            .omega;
+            
+            text-align: right;
+        }
+    }
+}

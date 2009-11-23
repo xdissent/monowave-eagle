@@ -1,0 +1,205 @@
+html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, font, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, b, u, i, center, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  outline: 0;
+  font-size: 100%;
+  vertical-align: baseline;
+  background: transparent;
+}
+body { line-height: 1; }
+ol, ul { list-style: none; }
+blockquote, q { quotes: none; }
+blockquote:before {
+  content: '';
+  content: none;
+}
+blockquote:after {
+  content: '';
+  content: none;
+}
+q:before {
+  content: '';
+  content: none;
+}
+q:after {
+  content: '';
+  content: none;
+}
+:focus { outline: 0; }
+ins { text-decoration: none; }
+del { text-decoration: line-through; }
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+body {
+  font-family: Helvetica, Arial, 'Liberation Sans', FreeSans, sans-serif;
+  font-size: 12px;
+  line-height: 18px;
+}
+a:focus { outline: 1px dotted; }
+hr {
+  border: 0 #cccccc solid;
+  border-top-width: 1px;
+  clear: both;
+  height: 0;
+  margin-top: -1px;
+}
+.gargantuan {
+  font-weight: bold;
+  font-size: 6em;
+  line-height: 1em;
+}
+.enormous {
+  font-weight: bold;
+  font-size: 5em;
+  line-height: 1.2em;
+}
+.giant {
+  font-weight: bold;
+  font-size: 4em;
+  line-height: 1.125em;
+}
+.huge {
+  font-weight: bold;
+  font-size: 3em;
+  line-height: 1.5em;
+}
+.h1 {
+  font-weight: bold;
+  font-size: 2.5em;
+  line-height: 1.2em;
+}
+.h2 {
+  font-weight: bold;
+  font-size: 2em;
+  line-height: 1.5em;
+}
+.h3 {
+  font-weight: bold;
+  font-size: 1.5em;
+  line-height: 18px;
+}
+.h4 {
+  font-weight: bold;
+  font-size: 1.25em;
+  line-height: 18px;
+}
+.h5 {
+  font-weight: bold;
+  font-size: 1em;
+  line-height: 18px;
+}
+.h6 {
+  font-weight: normal;
+  font-size: 1em;
+  line-height: 18px;
+}
+h1 {
+  font-weight: bold;
+  font-size: 2.5em;
+  line-height: 1.2em;
+}
+h2 {
+  font-weight: bold;
+  font-size: 2em;
+  line-height: 1.5em;
+}
+h3 {
+  font-weight: bold;
+  font-size: 1.5em;
+  line-height: 18px;
+}
+h4 {
+  font-weight: bold;
+  font-size: 1.25em;
+  line-height: 18px;
+}
+h5 {
+  font-weight: bold;
+  font-size: 1em;
+  line-height: 18px;
+}
+h6 {
+  font-weight: normal;
+  font-size: 1em;
+  line-height: 18px;
+}
+ol { list-style: decimal; }
+ul { list-style: none; }
+li { margin-left: 30px; }
+p, dl, hr, h1, h2, h3, h4, h5, h6, ol, ul, pre, table, address, fieldset { margin-bottom: 18px; }
+.alpha { margin-left: 0; }
+.omega { margin-right: 0; }
+.clear { clear: both; }
+#forkme {
+  position: absolute;
+  top: 0;
+  right: 0;
+  border: 0;
+  z-index: 1001;
+}
+#wrapper {
+  width: 960px;
+  margin-right: auto;
+  margin-left: auto;
+  font-family: Georgia, serif;
+}
+#wrapper #header {
+  display: inline;
+  float: left;
+  position: relative;
+  margin-left: 10px;
+  margin-right: 10px;
+  width: 940px;
+}
+#wrapper #header > p {
+  font-weight: bold;
+  font-size: 3em;
+  line-height: 1.5em;
+}
+#wrapper #sidebar {
+  display: inline;
+  float: left;
+  position: relative;
+  margin-left: 10px;
+  margin-right: 10px;
+  width: 160px;
+}
+#wrapper #sidebar > ul > li { margin-left: 0; }
+#wrapper #content {
+  display: inline;
+  float: left;
+  position: relative;
+  margin-left: 10px;
+  margin-right: 10px;
+  width: 760px;
+}
+#wrapper #footer {
+  display: inline;
+  float: left;
+  position: relative;
+  margin-left: 10px;
+  margin-right: 10px;
+  width: 940px;
+}
+#wrapper #footer > p:first-child {
+  display: inline;
+  float: left;
+  position: relative;
+  margin-left: 10px;
+  margin-right: 10px;
+  width: 460px;
+  margin-left: 0;
+}
+#wrapper #footer > p:last-child {
+  display: inline;
+  float: left;
+  position: relative;
+  margin-left: 10px;
+  margin-right: 10px;
+  width: 460px;
+  margin-right: 0;
+  text-align: right;
+}
