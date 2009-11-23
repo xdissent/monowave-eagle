@@ -1,20 +1,18 @@
-<div class="device" id="{L.NAME}-devices-{DS.NAME}">
+<div class="device" id="device-{DS.NAME}">
     
-    <h4>{DS.NAME}</h4>
-    <img src="../images/{L.NAME}-device-{DS.NAME}.png" />
+    <h2>{DS.NAME}</h2>
+    <img src="../images/{L.NAME}-device-{DS.NAME}.png" alt="{DS.NAME} device" />
     <p>{DS.DESC}</p>
     
-    <div class="gates" id="{L.NAME}-devices-{DS.NAME}-gates">
-        
-        <h5>Gates</h5>
+    <h3>Gates</h3>
+    <div class="gates" id="device-{DS.NAME}-gates">
         
         {GATES}
         
     </div><!-- end gates -->
     
-    <div class="variants" id="{L.NAME}-devices-{DS.NAME}-variants">
-        
-        <h5>Variants</h5>
+    <h3>Variants</h3>
+    <div class="variants" id="device-{DS.NAME}-variants">
         
         {VARIANTS}
         

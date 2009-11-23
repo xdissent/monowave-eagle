@@ -1,0 +1,97 @@
+/**
+ * Grid LESS
+ *
+ * Horizontal Grid
+ *
+ * Copyright 2009 Greg Thornton <xdissent@gmail.com>
+ * License: http://creativecommons.org/licenses/by-sa/3.0/us/
+ */
+
+@import url(reset.less);
+@import url(text.less);
+
+/**
+ * Create a grid container.
+ */
+.grid-container(@columns:16, @width: 960px, @margin: 10px) {
+    width: @width;
+    margin-right: auto;
+    margin-left: auto;
+
+    /**
+     * Variable passed to child grids.
+     */
+    @column-width: @width / @columns;
+    
+    /**
+     * Create a grid.
+     */
+    .grid(@grid-columns: 0) {
+    
+        /**
+         * Styles
+         */
+        display: inline;
+        float: left;
+        position: relative;
+        margin-left: @margin;
+        margin-right: @margin;
+        width: @grid-columns * @column-width - 2 * @margin;
+    }
+    
+    /**
+     * Add empty columns to the left.
+     */
+    .prefix(@prefix: 0) {
+        padding-left: @column-width * @prefix;
+    }
+    
+    /**
+     * Add empty columns to the right.
+     */
+    .suffix(@suffix: 0) {
+        padding-right: @column-width * @suffix;
+    }
+    
+    /**
+     * Pull grid to the left.
+     */
+    .pull(@pull: 0) {
+        left: 0 - @column-width * @pull;
+    }
+    
+    /**
+     * Push grid to the right.
+     */
+    .push(@push: 0) {
+        left: @column-width * @push;
+    }
+}
+
+/**
+ * The following 2 mixins would ideally be defined inside the .grid-container
+ * mixin since it isn't relevant in any other scope. There is a bug in LESS
+ * that makes it impossible to nest mixins that don't take arguments so they
+ * are defined globally for now.
+ */
+ 
+/**
+ * The first grid inside another grid.
+ */
+.alpha {
+    margin-left: 0;
+}
+
+/**
+ * The last grid inside another grid.
+ */
+.omega {
+    margin-right: 0;
+}
+
+/**
+ * Make an element clear all floats.
+ */
+.clear {
+    clear: both;
+}

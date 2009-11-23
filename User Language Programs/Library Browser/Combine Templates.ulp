@@ -41,28 +41,30 @@ int main() {
     // Find all used libraries and wrap their html output with the index template.
     for (i = 0; used_libraries[i] != ""; i++) {
         string lib_name = filesetext(filename(used_libraries[i]), "");
-        string index_template;
+        string wrapper_template;
         string lib_template;
         
-        fileread(index_template, filedir(argv[0]) + "templates/index.html");
+        fileread(wrapper_template, filedir(argv[0]) + "templates/wrapper.html");
         fileread(lib_template, filedir(argv[0]) + "html/" + lib_name + ".html");
         
-        index_template = str_replace("{TOC}", toc, index_template);
-        index_template = str_replace("{LIBRARY}", lib_template, index_template);
+        wrapper_template = str_replace("{TOC}", toc, wrapper_template);
+        wrapper_template = str_replace("{CONTENT}", lib_template, wrapper_template);
         
         output(filedir(argv[0]) + "html/" + lib_name + ".html") {
-            printf(index_template);
+            printf(wrapper_template);
         }
     }
     
     // Handle main index file.
+    string wrapper_template;
     string index_template;
+    fileread(wrapper_template, filedir(argv[0]) + "templates/wrapper.html");
     fileread(index_template, filedir(argv[0]) + "templates/index.html");
-    index_template = str_replace("{TOC}", toc, index_template);
-    index_template = str_replace("{LIBRARY}", "", index_template);
+    wrapper_template = str_replace("{TOC}", toc, wrapper_template);
+    wrapper_template = str_replace("{CONTENT}", index_template, wrapper_template);
     
     output(filedir(argv[0]) + "html/index.html") {
-        printf(index_template);
+        printf(wrapper_template);
     }
     
     return(0);

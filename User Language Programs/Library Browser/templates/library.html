@@ -1,30 +1,34 @@
 <div class="library" id="{L.NAME}">
     
-    <h2>{L.NAME}</h2>
+    <h1>{L.NAME}</h1>
     <p>{L.DESC}</p>
     
-    <div class="devices" id="{L.NAME}-devices">
-
-        <h3>Devices</h3>
-        
-        {DEVICES}
-        
-    </div><!-- end devices -->
+    <div id="tabs">
     
-    <div class="packages" id="{L.NAME}-packages">
-        
-        <h3>Packages</h3>
-        
-        {PACKAGES}
-        
-    </div><!-- end packages -->
+        <ul>
+            <li><a href="#devices">Devices</a></li>
+            <li><a href="#packages">Packages</a></li>
+            <li><a href="#symbols">Symbols</a></li>
+        </ul>
     
-    <div class="symbols" id="{L.NAME}-symbols">
+        <div id="devices">
         
-        <h3>Symbols</h3>
+            {DEVICES}
         
-        {SYMBOLS}
+        </div><!-- end devices -->
+    
+        <div id="packages">
         
-    </div><!-- end symbols -->
+            {PACKAGES}
         
+        </div><!-- end packages -->
+    
+        <div id="symbols">
+        
+            {SYMBOLS}
+        
+        </div><!-- end symbols -->
+        
+    </div><!-- end tabs -->
+    
 </div><!-- end library -->

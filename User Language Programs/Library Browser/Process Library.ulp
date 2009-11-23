@@ -67,7 +67,7 @@ int main() {
             DS.devices(D) {
                 
                 // Set up attributes.
-                string attrs;
+                string attrs = "";
                 
                 // Crappy loop to handle attrs for technologies.
                 string t[];
@@ -91,6 +91,10 @@ int main() {
                         attrs = attrs + attr_template;
                     }
                 }
+                
+                if (attrs == "") {
+                    attrs = "<dt>None</dt>";
+                }
 
                 // Read in variant.html
                 string variant_template;
@@ -98,9 +102,18 @@ int main() {
                 
                 // Substitute {ATTRIBUTES} in variant template.
                 variant_template = str_replace("{ATTRIBUTES}", attrs, variant_template);
+                                
+                // Change default variant name to "Default".
+                string variant_name;
+                if (D.name == "''") {
+                    variant_name = "Default";
+                } else {
+                    variant_name = D.name;
+                }
                 
                 // Substitute {D.NAME} in variant template.
-                variant_template = str_replace("{D.NAME}", D.name, variant_template);
+                variant_template = str_replace("{D.NAME}", variant_name, variant_template);
+                
                 // Substitute {D.P.NAME} in variant template if it exists.
                 if (D.package) {
                     variant_template = str_replace("{D.P.NAME}", D.package.name, variant_template);
