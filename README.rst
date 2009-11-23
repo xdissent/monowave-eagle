@@ -52,7 +52,7 @@ site containing all the devices, packages, and symbols in the currently used
 Eagle libraries. It renders XHTML 1.0 Strict compliant markup, and uses JQuery
 and JQuery UI to spruce things up. A current version displaying all of the 
 Monowave libraries is always available at 
-http://github.com/xdissent/monowave-eagle/libraries/
+http://xdissent.github.com/monowave-eagle/libraries/
 
 SPICE Simulation
 ----------------
