@@ -1,0 +1,314 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+	"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+	
+	<link rel="stylesheet" href="../css/library.css" type="text/css" media="screen, projection" />
+	<link rel="stylesheet" href="../css/jqueryui-theme/theme.css" type="text/css" media="screen, projection" />
+    <script type="text/javascript" src="http://www.google.com/jsapi"></script>
+    <script type="text/javascript" src="../js/library.js"></script>
+	<title>Monowave Eagle Libraries</title>
+	
+</head>
+
+<body>
+<div id="wrapper">
+    <div id="header">
+        <p>Monowave Eagle Libraries</p>
+    </div>
+
+    <div id="sidebar">
+        <p><a href="index.html">Introduction</a></p>
+        <p>Libraries</p>
+        <ul id="toc">
+            <li>
+    <a href="CMOS.html">CMOS</a>
+</li><li>
+    <a href="Diodes.html">Diodes</a>
+</li><li>
+    <a href="Frames.html">Frames</a>
+</li><li>
+    <a href="Op Amps.html">Op Amps</a>
+</li><li>
+    <a href="Power Jacks.html">Power Jacks</a>
+</li><li>
+    <a href="SPICE Tools.html">SPICE Tools</a>
+</li><li>
+    <a href="Supply.html">Supply</a>
+</li><li>
+    <a href="Switches.html">Switches</a>
+</li><li>
+    <a href="Transistors.html">Transistors</a>
+</li><li>
+    <a href="Audio Jacks 0.25 inch.html">Audio Jacks 0.25 inch</a>
+</li><li>
+    <a href="Capacitors.html">Capacitors</a>
+</li><li>
+    <a href="Potentiometers.html">Potentiometers</a>
+</li><li>
+    <a href="Resistors.html">Resistors</a>
+</li>
+        </ul>
+    </div>
+
+    <div id="content">
+        
+        <div class="library" id="Potentiometers">
+    
+    <h1>Potentiometers</h1>
+    <p>Potentiometers</p>
+    
+    <div id="tabs">
+    
+        <ul>
+            <li><a href="#devices">Devices</a></li>
+            <li><a href="#packages">Packages</a></li>
+            <li><a href="#symbols">Symbols</a></li>
+        </ul>
+    
+        <div id="devices">
+        
+            <div class="device" id="device-POTENTIOMETER">
+    
+    <h2>POTENTIOMETER</h2>
+    <img src="../images/Potentiometers-device-POTENTIOMETER.png" alt="POTENTIOMETER device" />
+    <p>Potentiometer</p>
+    
+    <h3>Gates</h3>
+    <div class="gates" id="device-POTENTIOMETER-gates">
+        
+        <div class="gate" id="device-POTENTIOMETER-gates-A">
+    
+    <h4>A</h4>
+    
+    <p>Symbol: <a href="#symbol-POTENTIOMETER">POTENTIOMETER</a></p>
+    
+</div><!-- end gate -->
+        
+    </div><!-- end gates -->
+    
+    <h3>Variants</h3>
+    <div class="variants" id="device-POTENTIOMETER-variants">
+        
+        <h4>HORIZONTAL</h4>
+
+<div class="variant" id="devices-POTENTIOMETER-variants-HORIZONTAL">
+    
+    <p>Package: <a href="#package-POT-SIDE-16MM-BITECH-P160KN">POT-SIDE-16MM-BITECH-P160KN</a></p>
+    <p>Attributes:</p>
+    <dl>
+        <dt>PERCENT</dt>
+<dd>50</dd><dt>SPICE</dt>
+<dd>R&#123;NAME&#125;CW &#123;3.NET&#125; &#123;2.NET&#125; &#123;&#123;&#123;VALUE&#125; - &#123;&#123;&#123;ATTR.PERCENT&#125; / 100&#125; * &#123;VALUE&#125;&#125;&#125; + 0.001&#125;\nR&#123;NAME&#125;CCW &#123;2.NET&#125; &#123;1.NET&#125; &#123;&#123;&#123;&#123;ATTR.PERCENT&#125; / 100&#125; * &#123;VALUE&#125;&#125; + 0.001&#125;</dd>
+    </dl>
+    
+</div><!-- end variant --><h4>HORIZONTAL-LOG</h4>
+
+<div class="variant" id="devices-POTENTIOMETER-variants-HORIZONTAL-LOG">
+    
+    <p>Package: <a href="#package-POT-SIDE-16MM-BITECH-P160KN">POT-SIDE-16MM-BITECH-P160KN</a></p>
+    <p>Attributes:</p>
+    <dl>
+        <dt>PERCENT</dt>
+<dd>50</dd><dt>SPICE</dt>
+<dd>R&#123;NAME&#125;CW &#123;3.NET&#125; &#123;2.NET&#125; &#123;&#123;&#123;VALUE&#125; - &#123;&#123;&#123;&#123;ATTR.PERCENT&#125; / 100&#125; EXP 3.14&#125; * &#123;VALUE&#125;&#125;&#125; + 0.001&#125;\nR&#123;NAME&#125;CCW &#123;2.NET&#125; &#123;1.NET&#125; &#123;&#123;&#123;&#123;&#123;ATTR.PERCENT&#125; / 100&#125; EXP 3.14&#125; * &#123;VALUE&#125;&#125; + 0.001&#125;</dd>
+    </dl>
+    
+</div><!-- end variant --><h4>HORIZONTAL-REVLOG</h4>
+
+<div class="variant" id="devices-POTENTIOMETER-variants-HORIZONTAL-REVLOG">
+    
+    <p>Package: <a href="#package-POT-SIDE-16MM-BITECH-P160KN">POT-SIDE-16MM-BITECH-P160KN</a></p>
+    <p>Attributes:</p>
+    <dl>
+        <dt>PERCENT</dt>
+<dd>50</dd><dt>SPICE</dt>
+<dd>R&#123;NAME&#125;CW &#123;3.NET&#125; &#123;2.NET&#125; &#123;&#123;&#123;&#123;&#123;ATTR.PERCENT&#125; / 100&#125; EXP 3.14&#125; * &#123;VALUE&#125;&#125; + 0.001&#125;\nR&#123;NAME&#125;CCW &#123;2.NET&#125; &#123;1.NET&#125; &#123;&#123;&#123;VALUE&#125; - &#123;&#123;&#123;&#123;ATTR.PERCENT&#125; / 100&#125; EXP 3.14&#125; * &#123;VALUE&#125;&#125;&#125; + 0.001&#125;</dd>
+    </dl>
+    
+</div><!-- end variant -->
+        
+    </div><!-- end variants -->
+    
+</div><!-- end device --><div class="device" id="device-POTENTIOMETER-DPDT">
+    
+    <h2>POTENTIOMETER-DPDT</h2>
+    <img src="../images/Potentiometers-device-POTENTIOMETER-DPDT.png" alt="POTENTIOMETER-DPDT device" />
+    <p>Potentiometer with DPDT switch</p>
+    
+    <h3>Gates</h3>
+    <div class="gates" id="device-POTENTIOMETER-DPDT-gates">
+        
+        <div class="gate" id="device-POTENTIOMETER-DPDT-gates-A">
+    
+    <h4>A</h4>
+    
+    <p>Symbol: <a href="#symbol-SPDT">SPDT</a></p>
+    
+</div><!-- end gate --><div class="gate" id="device-POTENTIOMETER-DPDT-gates-B">
+    
+    <h4>B</h4>
+    
+    <p>Symbol: <a href="#symbol-SPDT">SPDT</a></p>
+    
+</div><!-- end gate --><div class="gate" id="device-POTENTIOMETER-DPDT-gates-G$1">
+    
+    <h4>G$1</h4>
+    
+    <p>Symbol: <a href="#symbol-POTENTIOMETER">POTENTIOMETER</a></p>
+    
+</div><!-- end gate -->
+        
+    </div><!-- end gates -->
+    
+    <h3>Variants</h3>
+    <div class="variants" id="device-POTENTIOMETER-DPDT-variants">
+        
+        <h4>Default</h4>
+
+<div class="variant" id="devices-POTENTIOMETER-DPDT-variants-Default">
+    
+    <p>Package: <a href="#package-POT-SIDE-DPDT-ALPHA-RV16BF">POT-SIDE-DPDT-ALPHA-RV16BF</a></p>
+    <p>Attributes:</p>
+    <dl>
+        <dt>None</dt>
+    </dl>
+    
+</div><!-- end variant --><h4>HORIZONTAL</h4>
+
+<div class="variant" id="devices-POTENTIOMETER-DPDT-variants-HORIZONTAL">
+    
+    <p>Package: <a href="#package-POT-SIDE-DPDT-ALPHA-RV16BF">POT-SIDE-DPDT-ALPHA-RV16BF</a></p>
+    <p>Attributes:</p>
+    <dl>
+        <dt>None</dt>
+    </dl>
+    
+</div><!-- end variant -->
+        
+    </div><!-- end variants -->
+    
+</div><!-- end device --><div class="device" id="device-POTENTIOMETER-DUAL">
+    
+    <h2>POTENTIOMETER-DUAL</h2>
+    <img src="../images/Potentiometers-device-POTENTIOMETER-DUAL.png" alt="POTENTIOMETER-DUAL device" />
+    <p>Potentiometer, dual</p>
+    
+    <h3>Gates</h3>
+    <div class="gates" id="device-POTENTIOMETER-DUAL-gates">
+        
+        <div class="gate" id="device-POTENTIOMETER-DUAL-gates-A">
+    
+    <h4>A</h4>
+    
+    <p>Symbol: <a href="#symbol-POTENTIOMETER">POTENTIOMETER</a></p>
+    
+</div><!-- end gate --><div class="gate" id="device-POTENTIOMETER-DUAL-gates-B">
+    
+    <h4>B</h4>
+    
+    <p>Symbol: <a href="#symbol-POTENTIOMETER">POTENTIOMETER</a></p>
+    
+</div><!-- end gate -->
+        
+    </div><!-- end gates -->
+    
+    <h3>Variants</h3>
+    <div class="variants" id="device-POTENTIOMETER-DUAL-variants">
+        
+        <h4>HORIZONTAL</h4>
+
+<div class="variant" id="devices-POTENTIOMETER-DUAL-variants-HORIZONTAL">
+    
+    <p>Package: <a href="#package-POT-DUAL-SIDE-ALPHA">POT-DUAL-SIDE-ALPHA</a></p>
+    <p>Attributes:</p>
+    <dl>
+        <dt>None</dt>
+    </dl>
+    
+</div><!-- end variant --><h4>POT-DUAL-TOP-11MM-ALPHA-317-2201F</h4>
+
+<div class="variant" id="devices-POTENTIOMETER-DUAL-variants-POT-DUAL-TOP-11MM-ALPHA-317-2201F">
+    
+    <p>Package: <a href="#package-POT-DUAL-TOP-11MM-ALPHA-317-2201F">POT-DUAL-TOP-11MM-ALPHA-317-2201F</a></p>
+    <p>Attributes:</p>
+    <dl>
+        <dt>None</dt>
+    </dl>
+    
+</div><!-- end variant -->
+        
+    </div><!-- end variants -->
+    
+</div><!-- end device -->
+        
+        </div><!-- end devices -->
+    
+        <div id="packages">
+        
+            <div class="package" id="package-POT-DUAL-SIDE-ALPHA">
+    
+    <h2>POT-DUAL-SIDE-ALPHA</h2>
+    <img src="../images/Potentiometers-package-POT-DUAL-SIDE-ALPHA.png" alt="POT-DUAL-SIDE-ALPHA package" />
+    <p>Potentiometer, dual, side adjust, 16mm, 1.3mm drill, 5mm lead spacing</p>
+    
+</div><!-- end package --><div class="package" id="package-POT-DUAL-TOP-11MM-ALPHA-317-2201F">
+    
+    <h2>POT-DUAL-TOP-11MM-ALPHA-317-2201F</h2>
+    <img src="../images/Potentiometers-package-POT-DUAL-TOP-11MM-ALPHA-317-2201F.png" alt="POT-DUAL-TOP-11MM-ALPHA-317-2201F package" />
+    <p>Alpha 317-2201F series top adjust dual linear potentiometer</p>
+    
+</div><!-- end package --><div class="package" id="package-POT-SIDE-16MM-BITECH-P160KN">
+    
+    <h2>POT-SIDE-16MM-BITECH-P160KN</h2>
+    <img src="../images/Potentiometers-package-POT-SIDE-16MM-BITECH-P160KN.png" alt="POT-SIDE-16MM-BITECH-P160KN package" />
+    <p>Potentiometer, 1.3mm drill, 5mm lead spacing, BI Technologies P160KN</p>
+    
+</div><!-- end package --><div class="package" id="package-POT-SIDE-DPDT-ALPHA-RV16BF">
+    
+    <h2>POT-SIDE-DPDT-ALPHA-RV16BF</h2>
+    <img src="../images/Potentiometers-package-POT-SIDE-DPDT-ALPHA-RV16BF.png" alt="POT-SIDE-DPDT-ALPHA-RV16BF package" />
+    <p>Potentiometer, with DPDT, 1.3mm drill, 5mm & 4mm lead spacing, Alpha RV16BF-20</p>
+    
+</div><!-- end package -->
+        
+        </div><!-- end packages -->
+    
+        <div id="symbols">
+        
+            <div class="symbol" id="symbol-POTENTIOMETER">
+    
+    <h2>POTENTIOMETER</h2>
+    
+    <img src="../images/Potentiometers-symbol-POTENTIOMETER.png" alt="POTENTIOMETER symbol" />
+    
+</div><!-- end symbol --><div class="symbol" id="symbol-SPDT">
+    
+    <h2>SPDT</h2>
+    
+    <img src="../images/Potentiometers-symbol-SPDT.png" alt="SPDT symbol" />
+    
+</div><!-- end symbol -->
+        
+        </div><!-- end symbols -->
+        
+    </div><!-- end tabs -->
+    
+</div><!-- end library -->
+        
+    </div><!-- end content -->
+    
+    <div id="footer">
+        <p>
+            <a href="http://validator.w3.org/check?uri=referer">
+                <img src="http://www.w3.org/Icons/valid-xhtml10-blue" alt="Valid XHTML 1.0 Strict" />
+            </a>
+        </p>
+        <p>&copy; 2009 Monowave Labs</p>
+    </div>
+    
+</div>
+</body>
+</html>

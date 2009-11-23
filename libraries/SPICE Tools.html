@@ -1,0 +1,362 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+	"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+	
+	<link rel="stylesheet" href="../css/library.css" type="text/css" media="screen, projection" />
+	<link rel="stylesheet" href="../css/jqueryui-theme/theme.css" type="text/css" media="screen, projection" />
+    <script type="text/javascript" src="http://www.google.com/jsapi"></script>
+    <script type="text/javascript" src="../js/library.js"></script>
+	<title>Monowave Eagle Libraries</title>
+	
+</head>
+
+<body>
+<div id="wrapper">
+    <div id="header">
+        <p>Monowave Eagle Libraries</p>
+    </div>
+
+    <div id="sidebar">
+        <p><a href="index.html">Introduction</a></p>
+        <p>Libraries</p>
+        <ul id="toc">
+            <li>
+    <a href="CMOS.html">CMOS</a>
+</li><li>
+    <a href="Diodes.html">Diodes</a>
+</li><li>
+    <a href="Frames.html">Frames</a>
+</li><li>
+    <a href="Op Amps.html">Op Amps</a>
+</li><li>
+    <a href="Power Jacks.html">Power Jacks</a>
+</li><li>
+    <a href="SPICE Tools.html">SPICE Tools</a>
+</li><li>
+    <a href="Supply.html">Supply</a>
+</li><li>
+    <a href="Switches.html">Switches</a>
+</li><li>
+    <a href="Transistors.html">Transistors</a>
+</li><li>
+    <a href="Audio Jacks 0.25 inch.html">Audio Jacks 0.25 inch</a>
+</li><li>
+    <a href="Capacitors.html">Capacitors</a>
+</li><li>
+    <a href="Potentiometers.html">Potentiometers</a>
+</li><li>
+    <a href="Resistors.html">Resistors</a>
+</li>
+        </ul>
+    </div>
+
+    <div id="content">
+        
+        <div class="library" id="SPICE Tools">
+    
+    <h1>SPICE Tools</h1>
+    <p></p>
+    
+    <div id="tabs">
+    
+        <ul>
+            <li><a href="#devices">Devices</a></li>
+            <li><a href="#packages">Packages</a></li>
+            <li><a href="#symbols">Symbols</a></li>
+        </ul>
+    
+        <div id="devices">
+        
+            <div class="device" id="device-OSCILLOSCOPE">
+    
+    <h2>OSCILLOSCOPE</h2>
+    <img src="../images/SPICE Tools-device-OSCILLOSCOPE.png" alt="OSCILLOSCOPE device" />
+    <p>Oscilloscope. Connect to a net to generate a SPICE plot of the transient response at that point.</p>
+    
+    <h3>Gates</h3>
+    <div class="gates" id="device-OSCILLOSCOPE-gates">
+        
+        <div class="gate" id="device-OSCILLOSCOPE-gates-A">
+    
+    <h4>A</h4>
+    
+    <p>Symbol: <a href="#symbol-OSCILLOSCOPE">OSCILLOSCOPE</a></p>
+    
+</div><!-- end gate -->
+        
+    </div><!-- end gates -->
+    
+    <h3>Variants</h3>
+    <div class="variants" id="device-OSCILLOSCOPE-variants">
+        
+        <h4>Default</h4>
+
+<div class="variant" id="devices-OSCILLOSCOPE-variants-Default">
+    
+    <p>Package: <a href="#package-TESTPOINT">TESTPOINT</a></p>
+    <p>Attributes:</p>
+    <dl>
+        <dt>SPICE</dt>
+<dd>.TRAN &#123;ATTR.STEP&#125; &#123;ATTR.STOP&#125;\n.CONTROL\nplot &#123;1.NET&#125;\n.ENDC</dd><dt>STEP</dt>
+<dd>1uS</dd><dt>STOP</dt>
+<dd>100mS</dd>
+    </dl>
+    
+</div><!-- end variant -->
+        
+    </div><!-- end variants -->
+    
+</div><!-- end device --><div class="device" id="device-OSCILLOSCOPE-2TRACE">
+    
+    <h2>OSCILLOSCOPE-2TRACE</h2>
+    <img src="../images/SPICE Tools-device-OSCILLOSCOPE-2TRACE.png" alt="OSCILLOSCOPE-2TRACE device" />
+    <p>Oscilloscope, dual trace. Connect to a net to generate a SPICE plot of the transient response at that point.</p>
+    
+    <h3>Gates</h3>
+    <div class="gates" id="device-OSCILLOSCOPE-2TRACE-gates">
+        
+        <div class="gate" id="device-OSCILLOSCOPE-2TRACE-gates-A">
+    
+    <h4>A</h4>
+    
+    <p>Symbol: <a href="#symbol-OSCILLOSCOPE">OSCILLOSCOPE</a></p>
+    
+</div><!-- end gate --><div class="gate" id="device-OSCILLOSCOPE-2TRACE-gates-B">
+    
+    <h4>B</h4>
+    
+    <p>Symbol: <a href="#symbol-OSCILLOSCOPE">OSCILLOSCOPE</a></p>
+    
+</div><!-- end gate -->
+        
+    </div><!-- end gates -->
+    
+    <h3>Variants</h3>
+    <div class="variants" id="device-OSCILLOSCOPE-2TRACE-variants">
+        
+        <h4>Default</h4>
+
+<div class="variant" id="devices-OSCILLOSCOPE-2TRACE-variants-Default">
+    
+    <p>Package: <a href="#package-TESTPOINT-2">TESTPOINT-2</a></p>
+    <p>Attributes:</p>
+    <dl>
+        <dt>SPICE</dt>
+<dd>.TRAN &#123;ATTR.STEP&#125; &#123;ATTR.STOP&#125;\n.CONTROL\nplot &#123;A.1.NET&#125; &#123;B.1.NET&#125;\n.ENDC</dd><dt>STEP</dt>
+<dd>1uS</dd><dt>STOP</dt>
+<dd>100mS</dd>
+    </dl>
+    
+</div><!-- end variant -->
+        
+    </div><!-- end variants -->
+    
+</div><!-- end device --><div class="device" id="device-OSCILLOSCOPE-3TRACE">
+    
+    <h2>OSCILLOSCOPE-3TRACE</h2>
+    <img src="../images/SPICE Tools-device-OSCILLOSCOPE-3TRACE.png" alt="OSCILLOSCOPE-3TRACE device" />
+    <p>Oscilloscope, triple trace. Connect to a net to generate a SPICE plot of the transient response at that point.</p>
+    
+    <h3>Gates</h3>
+    <div class="gates" id="device-OSCILLOSCOPE-3TRACE-gates">
+        
+        <div class="gate" id="device-OSCILLOSCOPE-3TRACE-gates-A">
+    
+    <h4>A</h4>
+    
+    <p>Symbol: <a href="#symbol-OSCILLOSCOPE">OSCILLOSCOPE</a></p>
+    
+</div><!-- end gate --><div class="gate" id="device-OSCILLOSCOPE-3TRACE-gates-B">
+    
+    <h4>B</h4>
+    
+    <p>Symbol: <a href="#symbol-OSCILLOSCOPE">OSCILLOSCOPE</a></p>
+    
+</div><!-- end gate --><div class="gate" id="device-OSCILLOSCOPE-3TRACE-gates-C">
+    
+    <h4>C</h4>
+    
+    <p>Symbol: <a href="#symbol-OSCILLOSCOPE">OSCILLOSCOPE</a></p>
+    
+</div><!-- end gate -->
+        
+    </div><!-- end gates -->
+    
+    <h3>Variants</h3>
+    <div class="variants" id="device-OSCILLOSCOPE-3TRACE-variants">
+        
+        <h4>Default</h4>
+
+<div class="variant" id="devices-OSCILLOSCOPE-3TRACE-variants-Default">
+    
+    <p>Package: <a href="#package-TESTPOINT-3">TESTPOINT-3</a></p>
+    <p>Attributes:</p>
+    <dl>
+        <dt>SPICE</dt>
+<dd>.TRAN &#123;ATTR.STEP&#125; &#123;ATTR.STOP&#125;\n.CONTROL\nplot &#123;A.1.NET&#125; &#123;B.1.NET&#125; &#123;C.1.NET&#125;\n.ENDC</dd><dt>STEP</dt>
+<dd>1uS</dd><dt>STOP</dt>
+<dd>100mS</dd>
+    </dl>
+    
+</div><!-- end variant -->
+        
+    </div><!-- end variants -->
+    
+</div><!-- end device --><div class="device" id="device-SINEWAVE">
+    
+    <h2>SINEWAVE</h2>
+    <img src="../images/SPICE Tools-device-SINEWAVE.png" alt="SINEWAVE device" />
+    <p>Sine wave voltage source. Contains SPICE data defining a sinusoidal voltage source between pin 1 and ground. 
+Frequency is determined by the part's VALUE. DC offset and amplitude default to 0 and 1V respectively
+an may be overridden by altering the corresponding SPICE attribute of individual part instances in the schematic. A
+test point is added to the board for physical testing and a SPICE transient analysis is plotted automatically.</p>
+    
+    <h3>Gates</h3>
+    <div class="gates" id="device-SINEWAVE-gates">
+        
+        <div class="gate" id="device-SINEWAVE-gates-A">
+    
+    <h4>A</h4>
+    
+    <p>Symbol: <a href="#symbol-SINEWAVE">SINEWAVE</a></p>
+    
+</div><!-- end gate -->
+        
+    </div><!-- end gates -->
+    
+    <h3>Variants</h3>
+    <div class="variants" id="device-SINEWAVE-variants">
+        
+        <h4>Default</h4>
+
+<div class="variant" id="devices-SINEWAVE-variants-Default">
+    
+    <p>Package: <a href="#package-TESTPOINT">TESTPOINT</a></p>
+    <p>Attributes:</p>
+    <dl>
+        <dt>ACMAGNITUDE</dt>
+<dd>1</dd><dt>AMPLITUDE</dt>
+<dd>1V</dd><dt>DCOFFSET</dt>
+<dd>0</dd><dt>SPICE</dt>
+<dd>V&#123;NAME&#125; &#123;1.NET&#125; 0 AC &#123;ATTR.ACMAGNITUDE&#125; SIN(&#123;ATTR.DCOFFSET&#125; &#123;ATTR.AMPLITUDE&#125; &#123;VALUE&#125;)</dd>
+    </dl>
+    
+</div><!-- end variant -->
+        
+    </div><!-- end variants -->
+    
+</div><!-- end device --><div class="device" id="device-SINEWAVE-FLOATING">
+    
+    <h2>SINEWAVE-FLOATING</h2>
+    <img src="../images/SPICE Tools-device-SINEWAVE-FLOATING.png" alt="SINEWAVE-FLOATING device" />
+    <p>Floating sine wave voltage source. Contains SPICE data defining a sinusoidal voltage source between 2 pins. 
+Frequency is determined by the part's VALUE. DC offset and amplitude default to 0 and 1V respectively
+an may be overridden by altering the corresponding SPICE attribute of individual part instances in the schematic. A
+test point is added to the board for physical testing and a SPICE transient analysis is plotted automatically.</p>
+    
+    <h3>Gates</h3>
+    <div class="gates" id="device-SINEWAVE-FLOATING-gates">
+        
+        <div class="gate" id="device-SINEWAVE-FLOATING-gates-A">
+    
+    <h4>A</h4>
+    
+    <p>Symbol: <a href="#symbol-SINEWAVE">SINEWAVE</a></p>
+    
+</div><!-- end gate --><div class="gate" id="device-SINEWAVE-FLOATING-gates-B">
+    
+    <h4>B</h4>
+    
+    <p>Symbol: <a href="#symbol-SINEWAVE">SINEWAVE</a></p>
+    
+</div><!-- end gate -->
+        
+    </div><!-- end gates -->
+    
+    <h3>Variants</h3>
+    <div class="variants" id="device-SINEWAVE-FLOATING-variants">
+        
+        <h4>Default</h4>
+
+<div class="variant" id="devices-SINEWAVE-FLOATING-variants-Default">
+    
+    <p>Package: <a href="#package-TESTPOINT-2">TESTPOINT-2</a></p>
+    <p>Attributes:</p>
+    <dl>
+        <dt>AMPLITUDE</dt>
+<dd>1V</dd><dt>DCOFFSET</dt>
+<dd>0</dd><dt>SPICE</dt>
+<dd>V&#123;NAME&#125; &#123;A.1.NET&#125; &#123;B.1.NET&#125; SIN(&#123;ATTR.DCOFFSET&#125; &#123;ATTR.AMPLITUDE&#125; &#123;VALUE&#125;)</dd>
+    </dl>
+    
+</div><!-- end variant -->
+        
+    </div><!-- end variants -->
+    
+</div><!-- end device -->
+        
+        </div><!-- end devices -->
+    
+        <div id="packages">
+        
+            <div class="package" id="package-TESTPOINT">
+    
+    <h2>TESTPOINT</h2>
+    <img src="../images/SPICE Tools-package-TESTPOINT.png" alt="TESTPOINT package" />
+    <p></p>
+    
+</div><!-- end package --><div class="package" id="package-TESTPOINT-2">
+    
+    <h2>TESTPOINT-2</h2>
+    <img src="../images/SPICE Tools-package-TESTPOINT-2.png" alt="TESTPOINT-2 package" />
+    <p>Test point. 2 points.</p>
+    
+</div><!-- end package --><div class="package" id="package-TESTPOINT-3">
+    
+    <h2>TESTPOINT-3</h2>
+    <img src="../images/SPICE Tools-package-TESTPOINT-3.png" alt="TESTPOINT-3 package" />
+    <p>Test points. 3 points.</p>
+    
+</div><!-- end package -->
+        
+        </div><!-- end packages -->
+    
+        <div id="symbols">
+        
+            <div class="symbol" id="symbol-OSCILLOSCOPE">
+    
+    <h2>OSCILLOSCOPE</h2>
+    
+    <img src="../images/SPICE Tools-symbol-OSCILLOSCOPE.png" alt="OSCILLOSCOPE symbol" />
+    
+</div><!-- end symbol --><div class="symbol" id="symbol-SINEWAVE">
+    
+    <h2>SINEWAVE</h2>
+    
+    <img src="../images/SPICE Tools-symbol-SINEWAVE.png" alt="SINEWAVE symbol" />
+    
+</div><!-- end symbol -->
+        
+        </div><!-- end symbols -->
+        
+    </div><!-- end tabs -->
+    
+</div><!-- end library -->
+        
+    </div><!-- end content -->
+    
+    <div id="footer">
+        <p>
+            <a href="http://validator.w3.org/check?uri=referer">
+                <img src="http://www.w3.org/Icons/valid-xhtml10-blue" alt="Valid XHTML 1.0 Strict" />
+            </a>
+        </p>
+        <p>&copy; 2009 Monowave Labs</p>
+    </div>
+    
+</div>
+</body>
+</html>

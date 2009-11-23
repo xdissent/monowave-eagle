@@ -1,0 +1,198 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+	"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+	
+	<link rel="stylesheet" href="../css/library.css" type="text/css" media="screen, projection" />
+	<link rel="stylesheet" href="../css/jqueryui-theme/theme.css" type="text/css" media="screen, projection" />
+    <script type="text/javascript" src="http://www.google.com/jsapi"></script>
+    <script type="text/javascript" src="../js/library.js"></script>
+	<title>Monowave Eagle Libraries</title>
+	
+</head>
+
+<body>
+<div id="wrapper">
+    <div id="header">
+        <p>Monowave Eagle Libraries</p>
+    </div>
+
+    <div id="sidebar">
+        <p><a href="index.html">Introduction</a></p>
+        <p>Libraries</p>
+        <ul id="toc">
+            <li>
+    <a href="CMOS.html">CMOS</a>
+</li><li>
+    <a href="Diodes.html">Diodes</a>
+</li><li>
+    <a href="Frames.html">Frames</a>
+</li><li>
+    <a href="Op Amps.html">Op Amps</a>
+</li><li>
+    <a href="Power Jacks.html">Power Jacks</a>
+</li><li>
+    <a href="SPICE Tools.html">SPICE Tools</a>
+</li><li>
+    <a href="Supply.html">Supply</a>
+</li><li>
+    <a href="Switches.html">Switches</a>
+</li><li>
+    <a href="Transistors.html">Transistors</a>
+</li><li>
+    <a href="Audio Jacks 0.25 inch.html">Audio Jacks 0.25 inch</a>
+</li><li>
+    <a href="Capacitors.html">Capacitors</a>
+</li><li>
+    <a href="Potentiometers.html">Potentiometers</a>
+</li><li>
+    <a href="Resistors.html">Resistors</a>
+</li>
+        </ul>
+    </div>
+
+    <div id="content">
+        
+        <div class="library" id="Transistors">
+    
+    <h1>Transistors</h1>
+    <p></p>
+    
+    <div id="tabs">
+    
+        <ul>
+            <li><a href="#devices">Devices</a></li>
+            <li><a href="#packages">Packages</a></li>
+            <li><a href="#symbols">Symbols</a></li>
+        </ul>
+    
+        <div id="devices">
+        
+            <div class="device" id="device-NPN">
+    
+    <h2>NPN</h2>
+    <img src="../images/Transistors-device-NPN.png" alt="NPN device" />
+    <p>NPN Transistor</p>
+    
+    <h3>Gates</h3>
+    <div class="gates" id="device-NPN-gates">
+        
+        <div class="gate" id="device-NPN-gates-G$1">
+    
+    <h4>G$1</h4>
+    
+    <p>Symbol: <a href="#symbol-NPN">NPN</a></p>
+    
+</div><!-- end gate -->
+        
+    </div><!-- end gates -->
+    
+    <h3>Variants</h3>
+    <div class="variants" id="device-NPN-variants">
+        
+        <h4>Default</h4>
+
+<div class="variant" id="devices-NPN-variants-Default">
+    
+    <p>Package: <a href="#package-TO92-CBE">TO92-CBE</a></p>
+    <p>Attributes:</p>
+    <dl>
+        <dt>SPICE</dt>
+<dd>&#123;NAME&#125; &#123;C.NET&#125; &#123;B.NET&#125; &#123;E.NET&#125; NPN</dd><dt>SPICEMOD</dt>
+<dd>.model NPN NPN(BF=50000)</dd>
+    </dl>
+    
+</div><!-- end variant --><h4>2N3904</h4>
+
+<div class="variant" id="devices-NPN-variants-2N3904">
+    
+    <p>Package: <a href="#package-TO92-CBE">TO92-CBE</a></p>
+    <p>Attributes:</p>
+    <dl>
+        <dt>SPICE</dt>
+<dd>&#123;NAME&#125; &#123;C.NET&#125; &#123;B.NET&#125; &#123;E.NET&#125; 2N3904</dd><dt>SPICEMOD</dt>
+<dd>.model 2N3904 NPN(Is=6.734f Xti=3 Eg=1.11 Vaf=74.03 Bf=416.4 Ne=1.259\n+ Ise=6.734f Ikf=66.78m Xtb=1.5 Br=.7371 Nc=2 Isc=0 Ikr=0 Rc=1\n+ Cjc=3.638p Mjc=.3085 Vjc=.75 Fc=.5 Cje=4.493p Mje=.2593 Vje=.75\n+ Tr=239.5n Tf=301.2p Itf=.4 Vtf=4 Xtf=2 Rb=10)</dd>
+    </dl>
+    
+</div><!-- end variant -->
+        
+    </div><!-- end variants -->
+    
+</div><!-- end device -->
+        
+        </div><!-- end devices -->
+    
+        <div id="packages">
+        
+            <div class="package" id="package-TO92-BCE">
+    
+    <h2>TO92-BCE</h2>
+    <img src="../images/Transistors-package-TO92-BCE.png" alt="TO92-BCE package" />
+    <p><b>TO-92</b> Pads In Line B C E from top<p></p>
+    
+</div><!-- end package --><div class="package" id="package-TO92-BEC">
+    
+    <h2>TO92-BEC</h2>
+    <img src="../images/Transistors-package-TO92-BEC.png" alt="TO92-BEC package" />
+    <p><b>TO-92</b> Pads In Line  B E C from top<p></p>
+    
+</div><!-- end package --><div class="package" id="package-TO92-CBE">
+    
+    <h2>TO92-CBE</h2>
+    <img src="../images/Transistors-package-TO92-CBE.png" alt="TO92-CBE package" />
+    <p><b>TO-92</b> Pads In Line  C B E from top<p></p>
+    
+</div><!-- end package --><div class="package" id="package-TO92-CEB">
+    
+    <h2>TO92-CEB</h2>
+    <img src="../images/Transistors-package-TO92-CEB.png" alt="TO92-CEB package" />
+    <p><b>TO-92</b> Pads In Line C E B from top<p></p>
+    
+</div><!-- end package --><div class="package" id="package-TO92-EBC">
+    
+    <h2>TO92-EBC</h2>
+    <img src="../images/Transistors-package-TO92-EBC.png" alt="TO92-EBC package" />
+    <p><b>TO-92</b> Pads In Line E B C from top<p></p>
+    
+</div><!-- end package --><div class="package" id="package-TO92-ECB">
+    
+    <h2>TO92-ECB</h2>
+    <img src="../images/Transistors-package-TO92-ECB.png" alt="TO92-ECB package" />
+    <p><b>TO-92</b> Pads In Line E C B from top<p></p>
+    
+</div><!-- end package -->
+        
+        </div><!-- end packages -->
+    
+        <div id="symbols">
+        
+            <div class="symbol" id="symbol-NPN">
+    
+    <h2>NPN</h2>
+    
+    <img src="../images/Transistors-symbol-NPN.png" alt="NPN symbol" />
+    
+</div><!-- end symbol -->
+        
+        </div><!-- end symbols -->
+        
+    </div><!-- end tabs -->
+    
+</div><!-- end library -->
+        
+    </div><!-- end content -->
+    
+    <div id="footer">
+        <p>
+            <a href="http://validator.w3.org/check?uri=referer">
+                <img src="http://www.w3.org/Icons/valid-xhtml10-blue" alt="Valid XHTML 1.0 Strict" />
+            </a>
+        </p>
+        <p>&copy; 2009 Monowave Labs</p>
+    </div>
+    
+</div>
+</body>
+</html>
