@@ -101,8 +101,12 @@ int main() {
                 
                 // Substitute {D.NAME} in variant template.
                 variant_template = str_replace("{D.NAME}", D.name, variant_template);
-                // Substitute {D.P.NAME} in variant template.
-                variant_template = str_replace("{D.P.NAME}", D.package.name, variant_template);
+                // Substitute {D.P.NAME} in variant template if it exists.
+                if (D.package) {
+                    variant_template = str_replace("{D.P.NAME}", D.package.name, variant_template);
+                } else {
+                    variant_template = str_replace("{D.P.NAME}", "None", variant_template);
+                }
                 
                 // Add variant_template to variants string.
                 variants = variants + variant_template;
