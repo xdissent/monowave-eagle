@@ -1,0 +1,54 @@
+/**
+ * Library Browser
+ *
+ * This User Language Program will render an HTML index of an Eagle Library.
+ */
+
+#usage "en: Library Browser\n"
+        "This User Language Program will render an HTML index of an Eagle Library."
+
+/**
+ * main
+ *
+ * Renders the HTML library browser.
+ */
+int main() {
+    // The render script output.
+    string out[];
+
+    // Index for render script output lines.
+    int n = 0;
+    
+    // HTML output path. No path separator at the end.
+    string html_root = filedir(argv[0]) + "html";
+    
+    // Create temporary render script.
+    string render_script = filedir(argv[0]) + "render.scr";
+    
+    // Find all used libraries.
+    for (int i = 0; used_libraries[i] != ""; i++) {
+    
+        // Add line to render script, to open this library.
+        out[n++] = "OPEN '" + used_libraries[i] + "'";
+        
+        // Add line to render script, to run render ULP for this library.
+        out[n++] = "RUN '" + filedir(argv[0]) + "Process Library.ulp'";
+    }
+    
+    // Combine all the templates and finish up.
+    out[n++] = "RUN '" + filedir(argv[0]) + "Combine Templates.ulp'";
+    
+    // Close the library editor.
+    out[n++] = "CLOSE";
+    
+    // Open output file
+    output(render_script) {
+        printf(strjoin(out, '\n'));
+    }
+
+    // Exit this ULP and run the temporary render script.
+    exit("SCRIPT '" + render_script + "'");
+    
+    // We'll never return because `exit()` is used to call a script.
+    return(0);
+}

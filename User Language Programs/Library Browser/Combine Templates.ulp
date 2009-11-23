@@ -1,0 +1,69 @@
+/**
+ * str_replace
+ *
+ * Replaces all occurrences of a substring found within a string.
+ */
+string str_replace(string search, string replace, string subject) {
+    int lastpos = 0;
+    while(strstr(subject, search, lastpos) >= 0) {
+        int pos = strstr(subject, search, lastpos);
+        string before = strsub(subject, 0, pos);
+        string after = strsub(subject, pos + strlen(search));
+        subject = before + replace + after;
+        lastpos = pos + strlen(replace);
+    }
+    return subject;
+}
+
+/**
+ * main
+ *
+ * Combine all the generated library templates.
+ */
+int main() {
+
+    // Set up toc.
+    string toc;
+    
+    int i;
+
+    // Find all used libraries and add a link to the toc. 
+    for (i = 0; used_libraries[i] != ""; i++) {
+        string lib_name = filesetext(filename(used_libraries[i]), "");
+        string toc_template;
+        fileread(toc_template, filedir(argv[0]) + "templates/toc.html");
+        
+        toc_template = str_replace("{L.NAME}", lib_name, toc_template);
+        
+        toc = toc + toc_template;
+    }
+    
+    // Find all used libraries and wrap their html output with the index template.
+    for (i = 0; used_libraries[i] != ""; i++) {
+        string lib_name = filesetext(filename(used_libraries[i]), "");
+        string index_template;
+        string lib_template;
+        
+        fileread(index_template, filedir(argv[0]) + "templates/index.html");
+        fileread(lib_template, filedir(argv[0]) + "html/" + lib_name + ".html");
+        
+        index_template = str_replace("{TOC}", toc, index_template);
+        index_template = str_replace("{LIBRARY}", lib_template, index_template);
+        
+        output(filedir(argv[0]) + "html/" + lib_name + ".html") {
+            printf(index_template);
+        }
+    }
+    
+    // Handle main index file.
+    string index_template;
+    fileread(index_template, filedir(argv[0]) + "templates/index.html");
+    index_template = str_replace("{TOC}", toc, index_template);
+    index_template = str_replace("{LIBRARY}", "", index_template);
+    
+    output(filedir(argv[0]) + "html/index.html") {
+        printf(index_template);
+    }
+    
+    return(0);
+}

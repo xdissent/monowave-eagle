@@ -1,0 +1,221 @@
+/**
+ * str_replace
+ *
+ * Replaces all occurrences of a substring found within a string.
+ */
+string str_replace(string search, string replace, string subject) {
+    int lastpos = 0;
+    while(strstr(subject, search, lastpos) >= 0) {
+        int pos = strstr(subject, search, lastpos);
+        string before = strsub(subject, 0, pos);
+        string after = strsub(subject, pos + strlen(search));
+        subject = before + replace + after;
+        lastpos = pos + strlen(replace);
+    }
+    return subject;
+}
+
+/**
+ * main
+ *
+ * Processes a library for the Library Browser ULP.
+ */
+int main() {
+
+    // Only valid in the library editor.
+    library(L) {
+        status("Processing: " + L.name);
+        
+        // Template path.
+        string template_root = filedir(argv[0]) + "templates";
+        
+        // HTML output path.
+        string html_root = filedir(argv[0]) + "html";
+        
+        // Library short name.
+        string lib_name = filesetext(filename(L.name), "");
+        
+        // Temporary image script file name.
+        string image_script = filedir(argv[0]) + "images.scr";
+        
+        // Image output root path.
+        string image_root = filedir(argv[0]) + "images";
+        
+        // Temporary image script output lines.
+        string img_out[];
+        
+        // Image script line index.
+        int img_n = 0;
+        
+        // Library template substitutions.
+        string devices;
+        string packages;
+        string symbols;
+        
+        // Process devicesets.
+        L.devicesets(DS) {
+            status("Processing deviceset: " + DS.name);
+            
+            // Read in device.html
+            string device_template;
+            fileread(device_template, template_root + "/device.html");
+            
+            // Set up variants.
+            string variants;
+            
+            // Process device variants.
+            DS.devices(D) {
+                
+                // Set up attributes.
+                string attrs;
+                
+                // Crappy loop to handle attrs for technologies.
+                string t[];
+                int n = strsplit(t, D.technologies, ' ');
+                for (int i = 0; i < n; i++) {
+                    D.attributes(A, t[i]) {
+                        // Read in attribute.html
+                        string attr_template;
+                        fileread(attr_template, template_root + "/attribute.html");
+                    
+                        // Substitute {A.NAME} in attribute template.
+                        attr_template = str_replace("{A.NAME}", A.name, attr_template);
+                    
+                        // Escape substitutions in attributes.
+                        string val = str_replace("{", "&#123;", A.value);
+                        val = str_replace("}", "&#125;", val);
+                    
+                        // Substitute {A.VALUE} in attribute template.
+                        attr_template = str_replace("{A.VALUE}", val, attr_template);
+                    
+                        attrs = attrs + attr_template;
+                    }
+                }
+
+                // Read in variant.html
+                string variant_template;
+                fileread(variant_template, template_root + "/variant.html");
+                
+                // Substitute {ATTRIBUTES} in variant template.
+                variant_template = str_replace("{ATTRIBUTES}", attrs, variant_template);
+                
+                // Substitute {D.NAME} in variant template.
+                variant_template = str_replace("{D.NAME}", D.name, variant_template);
+                // Substitute {D.P.NAME} in variant template.
+                variant_template = str_replace("{D.P.NAME}", D.package.name, variant_template);
+                
+                // Add variant_template to variants string.
+                variants = variants + variant_template;
+            }
+            
+            // Set up gates.
+            string gates;
+            
+            // Process device gates.
+            DS.gates(G) {
+                
+                // Read in gate.html
+                string gate_template;
+                fileread(gate_template, template_root + "/gate.html");
+                
+                // Substitute {G.S.NAME} in gate template.
+                gate_template = str_replace("{G.S.NAME}", G.symbol.name, gate_template);
+                
+                // Substitute {G.NAME} in gate template.
+                gate_template = str_replace("{G.NAME}", G.name, gate_template);
+            
+                // Add gate_template to gates string.
+                gates = gates + gate_template;
+            }
+            
+            // Substitute variant template for {VARIANTS} in device template.
+            device_template = str_replace("{VARIANTS}", variants, device_template);
+            
+            // Substitute gate template for {GATES} in device template.
+            device_template = str_replace("{GATES}", gates, device_template);
+            
+            // Substitute {DS.NAME} and {DS.DESC}
+            device_template = str_replace("{DS.NAME}", DS.name, device_template);
+            device_template = str_replace("{DS.DESC}", DS.description, device_template);
+            
+            // Substitute device symbol name for {DS.S.NAME}.
+            // device_template = str_replace("{DS.S.NAME}", DS.symbol.name, device_template)
+            
+            // Add device template to devices string.
+            devices = devices + device_template;
+            
+            // Add image export command to image script.
+            sprintf(img_out[img_n++], "EDIT %s.dev", DS.name);
+            sprintf(img_out[img_n++], "EXPORT IMAGE '%s/%s-device-%s.png' 300", image_root, lib_name, DS.name);
+        }
+        
+        // Process packages.
+        L.packages(P) {
+            status("Processing package: " + P.name);
+            
+            // Read in package.html template.
+            string package_template;
+            fileread(package_template, template_root + "/package.html");
+            
+            // Substitute {P.NAME} and {P.DESC}
+            package_template = str_replace("{P.NAME}", P.name, package_template);
+            package_template = str_replace("{P.DESC}", P.description, package_template);
+            
+            // Add package template to packages string.
+            packages = packages + package_template;
+            
+            // Add image export command to image script.
+            sprintf(img_out[img_n++], "EDIT %s.pac", P.name);
+            sprintf(img_out[img_n++], "EXPORT IMAGE '%s/%s-package-%s.png' 300", image_root, lib_name, P.name);
+        }
+        
+        // Process symbols.
+        L.symbols(S) {
+            status("Processing symbol: " + S.name);
+            
+            // Read in symbol.html template.
+            string symbol_template;
+            fileread(symbol_template, template_root + "/symbol.html");
+            
+            // Substitute {S.NAME}
+            symbol_template = str_replace("{S.NAME}", S.name, symbol_template);
+            
+            // Add symbol template to symbols string.
+            symbols = symbols + symbol_template;
+            
+            // Add image export command to image script.
+            sprintf(img_out[img_n++], "EDIT %s.sym", S.name);
+            sprintf(img_out[img_n++], "EXPORT IMAGE '%s/%s-symbol-%s.png' 300", image_root, lib_name, S.name);
+        }
+        
+        // Read in library.html template.
+        string library_template;
+        fileread(library_template, template_root + "/library.html");
+        
+        // Substitute devices string for {DEVICES}.
+        library_template = str_replace("{DEVICES}", devices, library_template);
+        // Substitute packages string for {PACKAGES}.
+        library_template = str_replace("{PACKAGES}", packages, library_template);
+        // Substitute symbols string for {SYMBOLS}.
+        library_template = str_replace("{SYMBOLS}", symbols, library_template);
+        
+        // Subtitute {L.NAME} and {L.DESC} in library template.
+        library_template = str_replace("{L.NAME}", lib_name, library_template);
+        library_template = str_replace("{L.DESC}", L.description, library_template);
+        
+        // Output rendered library template.
+        output(html_root + "/" + lib_name + ".html") {
+            printf(library_template);
+        }
+        
+        // Output image script.
+        output(image_script) {
+            printf(strjoin(img_out, '\n'));
+        }
+        
+        // Run image export script for all devices, packages, and symbols.
+        exit("SCRIPT '" + image_script + "'");
+    }
+    
+    return(0);
+}
