@@ -8,19 +8,15 @@ Desktop="Desktop"
 [Globals]
 AutoSaveProject=1
 UsedLibrary="C:/Users/xdissent/Documents/monowave-eagle/Libraries/Frames.lbr"
-UsedLibrary="C:/Users/xdissent/Documents/monowave-eagle/Libraries/Op Amps.lbr"
 UsedLibrary="C:/Users/xdissent/Documents/monowave-eagle/Libraries/SPICE Tools.lbr"
 UsedLibrary="C:/Users/xdissent/Documents/monowave-eagle/Libraries/Supply.lbr"
-UsedLibrary="C:/Users/xdissent/Documents/monowave-eagle/Libraries/Switches.lbr"
-UsedLibrary="C:/Users/xdissent/Documents/monowave-eagle/Libraries/Transistors.lbr"
 UsedLibrary="C:/Users/xdissent/Documents/monowave-eagle/Libraries/Tubes.lbr"
 UsedLibrary="C:/Users/xdissent/Documents/monowave-eagle/Libraries/Passives/Resistors.lbr"
 UsedLibrary="C:/Users/xdissent/Documents/monowave-eagle/Libraries/Passives/Capacitors.lbr"
-UsedLibrary="C:/Users/xdissent/Documents/monowave-eagle/Libraries/Passives/Potentiometers.lbr"
 
 [Win_1]
 Type="Control Panel"
-Loc="44 229 643 628"
+Loc="44 192 643 628"
 State=2
 Number=0
 
