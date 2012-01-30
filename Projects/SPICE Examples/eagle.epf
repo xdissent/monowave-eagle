@@ -1,29 +1,29 @@
 [Eagle]
-Version="05 10 00"
-Platform="Windows"
-Serial="7D07E7847B-LSR-WLM-NCP"
+Version="06 01 00"
+Platform="Mac OS X"
+Serial="62191E841E-LSR-WLM-1EL"
 Globals="Globals"
 Desktop="Desktop"
 
 [Globals]
 AutoSaveProject=1
-UsedLibrary="C:/Users/xdissent/Documents/monowave-eagle/Libraries/Frames.lbr"
-UsedLibrary="C:/Users/xdissent/Documents/monowave-eagle/Libraries/Op Amps.lbr"
-UsedLibrary="C:/Users/xdissent/Documents/monowave-eagle/Libraries/SPICE Tools.lbr"
-UsedLibrary="C:/Users/xdissent/Documents/monowave-eagle/Libraries/Supply.lbr"
-UsedLibrary="C:/Users/xdissent/Documents/monowave-eagle/Libraries/Switches.lbr"
-UsedLibrary="C:/Users/xdissent/Documents/monowave-eagle/Libraries/Transistors.lbr"
-UsedLibrary="C:/Users/xdissent/Documents/monowave-eagle/Libraries/Tubes.lbr"
-UsedLibrary="C:/Users/xdissent/Documents/monowave-eagle/Libraries/Passives/Resistors.lbr"
-UsedLibrary="C:/Users/xdissent/Documents/monowave-eagle/Libraries/Passives/Capacitors.lbr"
-UsedLibrary="C:/Users/xdissent/Documents/monowave-eagle/Libraries/Passives/Potentiometers.lbr"
+UsedLibrary="/Users/xdissent/Documents/Eagle/monowave-eagle/Libraries/Frames.lbr"
+UsedLibrary="/Users/xdissent/Documents/Eagle/monowave-eagle/Libraries/Op Amps.lbr"
+UsedLibrary="/Users/xdissent/Documents/Eagle/monowave-eagle/Libraries/SPICE Tools.lbr"
+UsedLibrary="/Users/xdissent/Documents/Eagle/monowave-eagle/Libraries/Supply.lbr"
+UsedLibrary="/Users/xdissent/Documents/Eagle/monowave-eagle/Libraries/Switches.lbr"
+UsedLibrary="/Users/xdissent/Documents/Eagle/monowave-eagle/Libraries/Transistors.lbr"
+UsedLibrary="/Users/xdissent/Documents/Eagle/monowave-eagle/Libraries/Tubes.lbr"
+UsedLibrary="/Users/xdissent/Documents/Eagle/monowave-eagle/Libraries/Passives/Resistors.lbr"
+UsedLibrary="/Users/xdissent/Documents/Eagle/monowave-eagle/Libraries/Passives/Capacitors.lbr"
+UsedLibrary="/Users/xdissent/Documents/Eagle/monowave-eagle/Libraries/Passives/Potentiometers.lbr"
 
 [Win_1]
 Type="Control Panel"
-Loc="44 229 643 628"
+Loc="132 132 1386 953"
 State=2
 Number=0
 
 [Desktop]
-Screen="1920 1174"
+Screen="1920 1200"
 Window="Win_1"

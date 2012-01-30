@@ -339,13 +339,13 @@ int main() {
                 if (P.attribute["SPICE"]) {
                 
                     // The SPICE data to output.
-                    string out = P.attribute["SPICE"];
+                    string pout = P.attribute["SPICE"];
                 
                     // Substitute the name for "{NAME}".
-                    out = str_replace("{NAME}", P.name, out);
+                    pout = str_replace("{NAME}", P.name, pout);
                     
                     // Substitute the value for "{VALUE}".
-                    out = str_replace("{VALUE}", P.value, out);
+                    pout = str_replace("{VALUE}", P.value, pout);
                 
                     // Iterate over each part instance.
                     P.instances(I) {
@@ -354,46 +354,46 @@ int main() {
                         I.gate.symbol.pins(PIN) {
                         
                             // Substitute the pin net name for "{P.NET}" where "P" is the pin name.
-                            out = str_replace("{" + PIN.name + ".NET}", PIN.net, out);
+                            pout = str_replace("{" + PIN.name + ".NET}", PIN.net, pout);
                             
                             // Substitute the pin net name for "{G.P.NET}" where "G" is the gate name.
-                            out = str_replace("{" + I.gate.name + "." + PIN.name + ".NET}", PIN.net, out);
+                            pout = str_replace("{" + I.gate.name + "." + PIN.name + ".NET}", PIN.net, pout);
                         }
                     }
                     
                     // Iterate over each part attribute.
                     P.attributes(A) {
                         // Substitute value of attribute named "A" for "{ATTR.A}"
-                        out = str_replace("{ATTR." + A.name + "}", A.value, out);
+                        pout = str_replace("{ATTR." + A.name + "}", A.value, pout);
                     }
                     
                     // Evaluate operations.
-                    out = math_replace(out);
+                    pout = math_replace(pout);
                     
                     // Handle newlines last so other substitutions can use them.
-                    out = str_replace("\\n", "\n", out);
+                    pout = str_replace("\\n", "\n", pout);
                     
-                    netlist[n++] = out;
+                    netlist[n++] = pout;
                 }
             }
             
             // Process global SPICE data.
             SCHEM.attributes(A) {
-                if (A.name == "SPICE") {
-                    string out = A.value;
+                if (A.name == "GLOBALSPICE") {
+                    string xout = A.value;
                     
                     // Iterate over other global attributes.
                     SCHEM.attributes(B) {
-                        out = str_replace("{ATTR." + B.name + "}", B.value, out);
+                        xout = str_replace("{ATTR." + B.name + "}", B.value, xout);
                     }
                     
                     // Evaluate operations.
-                    out = math_replace(out);
+                    xout = math_replace(xout);
                 
                     // Handle newlines.
-                    out = str_replace("\\n", "\n", out);
+                    xout = str_replace("\\n", "\n", xout);
                 
-                    netlist[n++] = out;
+                    netlist[n++] = xout;
                 }
             }
             

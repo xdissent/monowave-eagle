@@ -7,12 +7,12 @@ Desktop="Desktop"
 
 [Globals]
 AutoSaveProject=1
-UsedLibrary="C:/Users/xdissent/Documents/monowave-eagle/Libraries/Frames.lbr"
-UsedLibrary="C:/Users/xdissent/Documents/monowave-eagle/Libraries/SPICE Tools.lbr"
-UsedLibrary="C:/Users/xdissent/Documents/monowave-eagle/Libraries/Supply.lbr"
-UsedLibrary="C:/Users/xdissent/Documents/monowave-eagle/Libraries/Tubes.lbr"
-UsedLibrary="C:/Users/xdissent/Documents/monowave-eagle/Libraries/Passives/Resistors.lbr"
-UsedLibrary="C:/Users/xdissent/Documents/monowave-eagle/Libraries/Passives/Capacitors.lbr"
+UsedLibrary="/Users/xdissent/Documents/Eagle/monowave-eagle/Libraries/Frames.lbr"
+UsedLibrary="/Users/xdissent/Documents/Eagle/monowave-eagle/Libraries/SPICE Tools.lbr"
+UsedLibrary="/Users/xdissent/Documents/Eagle/monowave-eagle/Libraries/Supply.lbr"
+UsedLibrary="/Users/xdissent/Documents/Eagle/monowave-eagle/Libraries/Tubes.lbr"
+UsedLibrary="/Users/xdissent/Documents/Eagle/monowave-eagle/Libraries/Passives/Resistors.lbr"
+UsedLibrary="/Users/xdissent/Documents/Eagle/monowave-eagle/Libraries/Passives/Capacitors.lbr"
 
 [Win_1]
 Type="Control Panel"
